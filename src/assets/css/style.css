@@ -1,0 +1,19 @@
+header{
+	padding: 10px;
+	background: lightblue;
+}
+#header-subscript{
+	font-style: italic;
+}
+
+#content{
+	margin-left: 5%;
+	margin-top: 5%;
+}
+.distro-show{
+	display: block;
+	min-width: 100px;
+	min-height: 100px;
+	max-width: 300px;
+	max-height: 300px;
+}
