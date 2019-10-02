@@ -4,20 +4,27 @@
         <title>
             Best Distro for Me
         </title>
+        <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <script src="assets/js/jquery-3.4.1.min.js"></script>
+        <script src="assets/js/script.js"></script>
     </head>
     <body>
     	<header>
-    		<H2>What is the best distro for me?</H2>
-    		<div id="header-subscript">The visual guide to Linux distributions and dektop environments</div>
+    		<H2>What is the best GNU/Linux distro for me?</H2>
+    		<div id="header-subscript">The visual guide to Linux distributions and desktop environments</div>
     	</header>
     	<section id="content">
             <H3>Pick which type of desktop you're most comfortable with.</H3>
-            <button type="distro-show">Windows-like</button>
-            <button type="distro-show">Mac-like</button>
-            <button type="distro-show">Something else</button>
+            <section id="choices">
+                <button type="distro-show" onclick="javascript:windows()">Windows-like</button>
+                <button type="distro-show" onclick="javascript:mac()">Mac-like</button>
+                <button type="distro-show" onclick="javascript:whatever()">Don't care</button>
+            </section>
+            <br /> <br /> <br />
+            Don't want to take the quiz? <button onclick="javascript:autoChoice()">We can choose for you</button>
     	</section>
 
     	

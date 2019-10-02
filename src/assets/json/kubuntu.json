@@ -1,0 +1,22 @@
+{
+    "name" : "Kubuntu",
+    "based_on" : "Debian",
+    "considered_upstream" : true,
+    "actually_upstream": false,
+    "desktop_envs" : "KDE",
+    
+    "mac_like" : false,
+    "windows_like": true,
+    
+    "ppa_support": true,
+    
+    "download_link" : "https://kubuntu.org",
+    "linux_delta" : "https://linuxdelta.com/distro/Kubuntu",
+    "distro_test" : "https://distrotest.net/Kubuntu/",
+    "distro_watch" : "https://distrowatch.com/table.php?distribution=kubuntu",
+
+    "description" : "Ubuntu with a different face, Kubuntu is a familiar and stable distribution. It is one of the best implementation of the KDE desktop environment. If you come from Windows, be sure to give Kubuntu a shot.",
+}
+        
+    
+    
