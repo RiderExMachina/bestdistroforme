@@ -10,6 +10,10 @@ header{
 	margin-left: 5%;
 	margin-top: 5%;
 }
+#choices{
+	margin-top: 10%;
+	margin-left: 20%;
+}
 .distro-show{
 	display: block;
 	min-width: 100px;

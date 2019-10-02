@@ -13,12 +13,6 @@ Checked boxes are the images we have. Prioritize unchecked boxes as much as poss
 - [ ] Fedora Cinnamon Spin
 - [ ] Fedora MATE Spin
 
-### Korora
-- [ ] Korora Gnome Spin
-- [ ] Korora XFCE Spin
-- [ ] Korora KDE Spin
-- [ ] Korora Cinnamon Spin
-
 ### Linux Mint
 - [ ] Linux Mint XFCE
 - [ ] Linux Mint Cinnamon
