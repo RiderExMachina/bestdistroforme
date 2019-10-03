@@ -15,8 +15,5 @@
     "distro_test" : "https://distrotest.net/Ubuntu/",
     "distro_watch" : "https://distrowatch.com/table.php?distribution=ubuntu",
 
-    "description" : "Backed by Canonical, Ubuntu is one of the more popular distributions. While not being \"upstream\" many user friendly distributions such as Linux Mint and ZorinOS are based on Ubuntu. There are also spins with different asthetics (see the \"related\" section).",
+    "description" : "Backed by Canonical, Ubuntu is one of the more popular distributions. While not being \"upstream\" many user friendly distributions such as Linux Mint and ZorinOS are based on Ubuntu. There are also spins with different asthetics (see the \"related\" section)."
 }
-        
-    
-    

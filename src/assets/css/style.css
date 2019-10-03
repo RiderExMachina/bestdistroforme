@@ -2,6 +2,7 @@ header{
 	padding: 10px;
 	background: lightblue;
 }
+/* IDs */
 #header-subscript{
 	font-style: italic;
 }
@@ -13,6 +14,19 @@ header{
 #choices{
 	margin-top: 10%;
 	margin-left: 20%;
+}
+#more-info {
+	font-size: .8em;
+}
+#recommended {
+	font-weight: bold;
+	size: 1.25em;
+}
+
+/* Classes */
+.dl-link {
+	font-size: .8em;
+	font-style: italic;
 }
 .distro-show{
 	display: block;

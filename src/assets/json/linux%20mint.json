@@ -1,9 +1,9 @@
 {
     "name" : "Linux Mint",
-    "based_on" : ["Ubuntu LTS", "Debian (LMDE)",],
+    "based_on" : ["Ubuntu LTS", "Debian (LMDE)"],
     "considered_upstream" : false,
     "actually_upstream": false,
-    "desktop_envs" : ["Cinnamon", "MATE", "XFCE",],
+    "desktop_envs" : ["Cinnamon", "MATE", "XFCE"],
     
     "mac_like" : false,
     "windows_like": true,
@@ -14,5 +14,5 @@
     "distro_test" : "https://distrotest.net/Linux%20Mint",
     "distro_watch" : "https://distrowatch.com/table.php?distribution=mint",
 
-    "description" : "Based on Ubuntu LTS, Linux Mint is a familiar and stable distribution. It is the original home of the Cinnamon desktop environment. There are multiple versions, but we recommend the default Cinnamon version from the website. If you come from Windows, be sure to give Linux Mint a shot.",
+    "description" : "Based on Ubuntu LTS, Linux Mint is a familiar and stable distribution. It is the original home of the Cinnamon desktop environment. There are multiple versions, but we recommend the default Cinnamon version from the website. If you come from Windows, be sure to give Linux Mint a shot."
 }
