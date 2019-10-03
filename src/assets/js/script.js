@@ -7,14 +7,24 @@ var ppaSupport = false;
 var companySupported = false;
 
 function displayResults(distro) {
-    var results = $.getJSON("../json/" + distro +".json", function(data) { console.log(data) });
+    distro = distro.toLowerCase().replace(/^a-z/)
+    var results = $.getJSON("../json/" + distro +".json", function(data) { document.getElementById("content").innerHTML = data; });
 }
 
 function windows() {
     windowsLike = true;
-    console.log(windowsLike);
+    displayResults("Linux Mint")
 
 };
+
+function mac() {
+    macLike = true;
+    displayResults("elementaryOS")
+};
+
+function whatever() {
+    autoChoice()
+}
 
 autoDistros = ["Kubuntu", "Pop!_OS", "elementaryOS", "Linux Mint"];
 function autoChoice() {
@@ -22,7 +32,6 @@ function autoChoice() {
     if (distro == undefined) {
         autoChoice()
     }
-    distro = distro.lower()
     displayResults(distro)
     
 };

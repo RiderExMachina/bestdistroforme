@@ -1,0 +1,19 @@
+{
+    "name" : "elementaryOS",
+    "based_on" : "Ubuntu",
+    "considered_upstream" : false,
+    "actually_upstream": false,
+    "desktop_envs" : "Pantheon",
+    
+    "mac_like" : true,
+    "windows_like": false,
+    
+    "ppa_support": true,
+    
+    "download_link" : "https://elementary.io",
+    "linux_delta" : "https://linuxdelta.com/distro/elementary",
+    "distro_test" : "https://distrotest.net/elementaryOS",
+    "distro_watch" : "https://distrowatch.com/table.php?distribution=elementary",
+
+    "description" : "Based on Ubuntu, elementaryOS sets out to have its own identity within the Linux ecosystem. Very few other desktops look or feel as well put together as elementary. If you want to just sit down and get work done, elementaryOS may be the distro for you.",
+}
