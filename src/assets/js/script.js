@@ -19,7 +19,11 @@ function displayResults(distro) {
         <br />
         Desktop Environments:
         <br />
-        <b>Information:</b>
+        `
+        for (i = 0; i <= info.desktop_envs.length; i++) {
+            info.desktop_envs[i]
+        }
+        `<b>Information:</b>
         <br/>`
          + info.description + 
          `<br /><br /><span id='more-info'>
