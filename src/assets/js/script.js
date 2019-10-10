@@ -98,6 +98,7 @@ function newtoLinux(newness) {
         oldFart = true;
         console.log("Back in my day");
     }
+    decision()
 }
 
 function softwareRelease(cycle) {
