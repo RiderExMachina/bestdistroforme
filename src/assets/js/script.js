@@ -21,15 +21,13 @@ function displayResults(distro) {
     file = "./assets/json/" + distro +".json";
     console.log(file)
 
-    file.onerror = function() {
-        document.getElementById("content").innerHTML = "The system decided you should try " + distro + " , but doesn't seem to have an entry in its database. Please report the error <a href='https://github.com/RiderExMachina/bestdistroforme/issues'>on the Github page</a>, including the distro and what choices you made (if you can't remember, press F12, click on the \"Console\" tab, then copy the words from . Sorry for the inconvenience!";
-    }
     var results = $.getJSON(file, function(info) { 
 
         document.getElementById("content").innerHTML = `
         We recommend <span id='recommended'>` + info.name + `</span>
         <br />
         <a href='` + info.download_link +`' class='dl-link'>Download it here</a>
+        <br />
         <br />
         <b>Desktop Environments:</b>
         <br />
@@ -45,6 +43,10 @@ function displayResults(distro) {
          <a href='` + info.distro_watch + `'>Distro Watch Page</a></span> <br /> <br />
          <button onclick="javascript:decision("`+ base +`")">Not a fan</button>`;
      });
+    
+    results.onerror = function() {
+        document.getElementById("content").innerHTML = "The system decided you should try " + base + " , but doesn't seem to have an entry in its database. Please report the error <a href='https://github.com/RiderExMachina/bestdistroforme/issues'>on the Github page</a>, including the distro and what choices you made (if you can't remember, press F12, click on the \"Console\" tab, then copy the words from . Sorry for the inconvenience!";
+    }
     
 }
 
@@ -66,6 +68,7 @@ function decision(toPop="") {
 
 
     if (toPop != "") {
+        console.log("Removing " + toPop)
         distros = distros.filter(toPop)
     }
     chosen = distros[Math.round(Math.random() * distros.length)];
