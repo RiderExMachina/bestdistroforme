@@ -2,9 +2,6 @@
 
 var windowsLike = false;
 var macLike = false;
-var upstream = false;
-var ppaSupport = false;
-var companySupported = false;
 var niceOOTB = false;
 var bleedingEdge = false;
 var cuttingEdge = false;
@@ -13,6 +10,7 @@ var dirtyHands = false;
 var newHere = false;
 var roundTheBlock = false;
 var oldFart = false;
+var simple = false;
 var gamer = false;
 
 function displayResults(distro) {
@@ -44,7 +42,7 @@ function displayResults(distro) {
          <button onclick="javascript:decision('`+ base +`')">Not a fan</button>`;
      });
     
-    results.onerror = function() {
+    file.onerror = function() {
         document.getElementById("content").innerHTML = "The system decided you should try " + base + " , but doesn't seem to have an entry in its database. Please report the error <a href='https://github.com/RiderExMachina/bestdistroforme/issues'>on the Github page</a>, including the distro and what choices you made (if you can't remember, press F12, click on the \"Console\" tab, then copy the words from . Sorry for the inconvenience!";
     }
     
@@ -52,21 +50,84 @@ function displayResults(distro) {
 
 function decision(toPop="") {
     var distros = []
-    if (newHere && windowsLike && niceOOTB && (cuttingEdge || stable)) {
-        distros.push("Zorin", "Linux Mint", "Solus");
-    }
 
-    else if (!newHere && windowsLike && niceOOTB && (cuttingEdge || bleedingEdge)) {
-        distros.push("Manjaro", "Fedora", "openSuse Tumbleweed");    
+    if (windowsLike) {
+        distros_like_win = ["Manjaro", "Zorin", "Linux Mint", "Ubuntu Mate", "Kubuntu", "Fedora", "openSuse Tumbleweed"];
+        for (i = 0; i<= distros_like_win.length; i++){
+            if (!distros.includes(distros_like_win[i])){
+                distros.push(distros_like_win[i]);    
+            }
+        }
     }
     
-    else if (newHere && macLike && niceOOTB) {
-        distros.push("elementaryOS", "Zorin", "Kubuntu");
-    }
-    else if (gamer) {
-        distros.push("Pop!_OS", "Manjaro");
+    if (macLike) {
+        distros_like_mac = ["elementaryOS", "Pop!_OS", "Zorin", "Kubuntu", "deepin", "Xubuntu", "Ubuntu Mate"]
+        for (i = 0; i<= distros_like_mac.length; i++){
+            if (!distros.includes(distros_like_mac[i])){
+                distros.push(distros_like_mac[i]);    
+            }
+        }
     }
 
+    if (niceOOTB) {
+        prettyDistros = ["elementaryOS", "Pop!_OS", "Zorin", "Kubuntu", "deepin", "Ubuntu Mate", "openSuse Tumbleweed"]
+        for (i = 0; i<= prettyDistros.length; i++){
+            if (!distros.includes(prettyDistros[i])){
+                distros.push(prettyDistros[i]);    
+            }
+        }
+    }
+    
+    if (bleedingEdge) {
+        bleedingEdgeDistros = ["openSuse Tumbleweed", "EndeavourOS", "Manjaro"]
+        for (i = 0; i<= bleedingEdgeDistros.length; i++){
+            if (!distros.includes(bleedingEdgeDistros[i])){
+                distros.push(bleedingEdgeDistros[i]);    
+            }
+        }
+    }
+
+    if (cuttingEdge) {
+        cuttingEdgeDistros = ["Ubuntu", "Kubuntu", "Ubuntu Mate", "Xubuntu", "Ubuntu Budgie", "Debian Testing", "Solus", "Fedora"]
+        for (i = 0; i<= cuttingEdgeDistros.length; i++){
+            if (!distros.includes(cuttingEdgeDistros[i])){
+                distros.push(cuttingEdgeDistros[i]);    
+            }
+        }
+    }
+    
+    if (stable) {
+        stableDistros = ["Debian Stable", "CentOS"]
+        for (i = 0; i<= stableDistros.length; i++){
+            if (!distros.includes(stableDistros[i])){
+                distros.push(stableDistros[i]);    
+            }
+        }
+        if (distros.includes("Manjaro") || distros.includes("EndeavourOS")) {
+            distros.filter(function(item) { notForNoobs = ["Manjaro", "EndeavourOS"]; for (i=0; i<= notForNoobs.length; i++) {return item !== }}
+        }
+    }
+    if (gaming) {
+        gamingDistros = ["Pop!_OS", "Manjaro", "EndeavourOS"]
+        for (i = 0; i<= gamingDistros.length; i++){
+            if (!distros.includes(gamingDistros[i])){
+                distros.push(gamingDistros[i]);    
+            }
+        }
+    }
+    
+
+    if (newHere) {
+        newDistros = ["Zorin", "Pop!_OS", "Linux Mint", "elementaryOS", "Ubuntu Mate", "Kubuntu", "Solus"];
+        for (i = 0; i<= newDistros.length; i++){
+            if (!distros.includes(newDistros[i])){
+                distros.push(newDistros[i]);    
+            }
+        }
+        if (distros.includes("Manjaro") || distros.includes("EndeavourOS")) {
+            distros.filter(function(item) { notForNoobs = ["Manjaro", "EndeavourOS"]; for (i=0; i<= notForNoobs.length; i++) {return item !== }}
+        }
+    }
     if (distros.length == 0) {
         for (i = 0; i <= autoDistros.length; i++){
         distros.push(autoDistros[i]);
@@ -78,7 +139,6 @@ function decision(toPop="") {
     }
     chosen = distros[Math.round(Math.random() * distros.length)];
     if (chosen == undefined) {
-        console.log("Decision = " + chosen + "... Re-rolling");
         decision();
     }
     console.log(chosen)
@@ -127,15 +187,15 @@ function softwareRelease(cycle) {
 
 function customization(effort){
     if (effort == "none") {
-        console.log("Gotta look nice");
         niceOOTB = true;
+        console.log("Gotta look nice");
     }
     else if (effort == "littlebit") {
         console.log("Likes to dabble");
     }
     else if (effort == "arch-user") {
-        console.log("Gets hands dirty");
         dirtyHands = true;
+        console.log("Gets hands dirty");
     }
     document.getElementById("content").innerHTML = `
         <h3>How quickly do you want new software?</h3>
@@ -150,6 +210,7 @@ function customization(effort){
 
 function compUse(usecase) {
     if (usecase == "browsing") {
+        simple = yes;
         console.log("Mostly for browsing");
     }
     else if (usecase == "editing") {
@@ -194,23 +255,6 @@ function desktopType(desktop) {
             </section>
     `;
 }
-/*function windows() {
-    windowsLike = true;
-    console.log("Windows-like")
-    displayResults("Linux Mint")
-
-};
-
-function mac() {
-    macLike = true;
-    console.log("Mac-like")
-    displayResults("elementaryOS")
-};
-
-function whatever() {
-    console.log("\"Whatever\"")
-    displayResults("Pop!_OS")
-}*/
 
 autoDistros = ["Kubuntu", "Pop!_OS", "elementaryOS", "Linux Mint", "Zorin"];
 function autoChoice() {
