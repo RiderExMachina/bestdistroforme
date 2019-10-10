@@ -74,8 +74,7 @@ function decision(toPop="") {
     }
     if (toPop != "") {
         console.log("Removing " + toPop);
-        remove = toPop;
-        distros = distros.filter(remove);
+        distros = distros.filter(function(item) { return item !== toPop});
     }
     chosen = distros[Math.round(Math.random() * distros.length)];
     if (chosen == undefined) {
