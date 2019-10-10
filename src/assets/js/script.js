@@ -41,7 +41,7 @@ function displayResults(distro) {
          <a href='`+ info.linux_delta +`'>Linux Delta Rating</a> | 
          <a href='`+ info.distro_test +`'>Try it out</a> | 
          <a href='` + info.distro_watch + `'>Distro Watch Page</a></span> <br /> <br />
-         <button onclick="javascript:decision('`+ base +`'')">Not a fan</button>`;
+         <button onclick="javascript:decision('`+ base +`')">Not a fan</button>`;
      });
     
     results.onerror = function() {
