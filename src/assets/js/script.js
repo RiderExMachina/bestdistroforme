@@ -141,7 +141,6 @@ function decision(toPop="") {
     if (chosen == undefined) {
         decision();
     }
-    console.log(distros)
     console.log(chosen)
     displayResults(chosen)
 }
