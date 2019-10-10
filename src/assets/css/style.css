@@ -1,19 +1,27 @@
-header{
+header {
 	padding: 10px;
 	background: lightblue;
+	box-shadow: 0px 2px 12px 0px rgba(0,0,0,0.5);
 }
-/* IDs */
-#header-subscript{
+footer {
+	font-size: .9em;
+	text-align: center;
 	font-style: italic;
 }
 
-#content{
-	font-size: 1.5em;
+/* IDs */
+#header-subscript {
+	font-style: italic;
+	padding-left: 5%;
+}
+
+#content {
+	font-size: 1.25em;
 	margin-left: 5%;
 	margin-top: 5%;
 	max-width: 75%;
 }
-#choices{
+#choices {
 	margin-top: 10%;
 	margin-left: 20%;
 }
@@ -30,8 +38,8 @@ header{
 	font-size: .8em;
 	font-style: italic;
 }
-.distro-show{
-	display: block;
+.distro-show {
+	display: inline block;
 	min-width: 100px;
 	min-height: 100px;
 	max-width: 300px;
