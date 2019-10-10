@@ -109,9 +109,10 @@ function decision(toPop="") {
                 for (i=0; i<= notStable.length; i++) {
                     return item !== notStable[i]
                 }
-            }
+            })
         }
     }
+
     if (gaming) {
         gamingDistros = ["Pop!_OS", "Manjaro", "EndeavourOS"]
         for (i = 0; i<= gamingDistros.length; i++){
@@ -135,7 +136,7 @@ function decision(toPop="") {
                 for (i=0; i<= notForNoobs.length; i++) {
                     return item !== notForNoobs[i];
                 }
-            }
+            })
         }
     }
     if (distros.length == 0) {
