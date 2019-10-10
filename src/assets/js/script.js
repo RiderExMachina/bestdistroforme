@@ -41,7 +41,7 @@ function displayResults(distro) {
          <a href='`+ info.linux_delta +`'>Linux Delta Rating</a> | 
          <a href='`+ info.distro_test +`'>Try it out</a> | 
          <a href='` + info.distro_watch + `'>Distro Watch Page</a></span> <br /> <br />
-         <button onclick="javascript:decision("`+ base +`")">Not a fan</button>`;
+         <button onclick="javascript:decision('`+ base +`'')">Not a fan</button>`;
      });
     
     results.onerror = function() {
@@ -50,7 +50,7 @@ function displayResults(distro) {
     
 }
 
-function decision(toPop) {
+function decision(toPop="") {
     var distros = []
     if (newHere && windowsLike && niceOOTB && (cuttingEdge || stable)) {
         distros.push("Zorin", "Linux Mint", "Solus");
@@ -88,17 +88,16 @@ function decision(toPop) {
 function newtoLinux(newness) {
     if (newness == "baby") {
         newHere = true;
-        console.log("Brand new")
+        console.log("Brand new");
     }
     if (newness == "arch-user") {
         roundTheBlock = true;
-        console.log("Been around the block")
+        console.log("Been around the block");
     }
     if (newness == "old-fart") {
         oldFart = true;
-        console.log("Back in my day")
+        console.log("Back in my day");
     }
-    decision("")
 }
 
 function softwareRelease(cycle) {
