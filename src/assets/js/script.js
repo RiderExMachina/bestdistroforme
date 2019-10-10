@@ -31,17 +31,19 @@ function displayResults(distro) {
         <br />
         <a href='` + info.download_link +`' class='dl-link'>Download it here</a>
         <br />
-        Desktop Environments:
+        <b>Desktop Environments:</b>
         <br />
         ` + info.desktop_envs +
-        `<b>Information:</b>
+        `
+        <br/>
+        <b>Information:</b>
         <br/>`
          + info.description + 
          `<br /><br /><span id='more-info'>
          <a href='`+ info.linux_delta +`'>Linux Delta Rating</a> | 
          <a href='`+ info.distro_test +`'>Try it out</a> | 
-         <a href='` + info.distro_watch + `'>Distro Watch Page</a></span>
-         <button onclick="javascript:decision(`+ base +`)">Not a fan</button>`;
+         <a href='` + info.distro_watch + `'>Distro Watch Page</a></span> <br /> <br />
+         <button onclick="javascript:decision("`+ base +`")">Not a fan</button>`;
      });
     
 }
