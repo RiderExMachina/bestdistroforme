@@ -41,7 +41,7 @@ function displayResults(distro) {
          <a href='`+ info.linux_delta +`'>Linux Delta Rating</a> | 
          <a href='`+ info.distro_test +`'>Try it out</a> | 
          <a href='` + info.distro_watch + `'>Distro Watch Page</a></span> <br /> <br />
-         <button onclick="javascript:decision("`+ base +`")">Not a fan</button>`;
+         <button onclick="javascript:decision(`+ base +`)">Not a fan</button>`;
      });
     
     results.onerror = function() {
@@ -51,22 +51,27 @@ function displayResults(distro) {
 }
 
 function decision(toPop="") {
+    var distros = []
     if (newHere && windowsLike && niceOOTB && (cuttingEdge || stable)) {
-        distros = ["Zorin", "Linux Mint", "Solus"];
+        distros.push("Zorin", "Linux Mint", "Solus");
     }
 
     else if (!newHere && windowsLike && niceOOTB && (cuttingEdge || bleedingEdge)) {
-        distros = ["Manjaro", "Fedora", "openSuse Tumbleweed"];    
+        distros.push("Manjaro", "Fedora", "openSuse Tumbleweed");    
     }
     
     else if (newHere && macLike && niceOOTB) {
-        distros = ["elementaryOS", "Zorin", "Kubuntu"];
+        distros.push("elementaryOS", "Zorin", "Kubuntu");
     }
     else if (gamer) {
-        distros = ["Pop!_OS", "Manjaro"]
+        distros.push("Pop!_OS", "Manjaro");
     }
 
-
+    if (distros.length == 0) {
+        for (i = 0; i <= autoDistros.length; i++){
+        distros.push(autoDistros[i]);
+    }
+    }
     if (toPop != "") {
         console.log("Removing " + toPop)
         distros = distros.filter(toPop)
