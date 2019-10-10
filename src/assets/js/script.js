@@ -113,7 +113,7 @@ function decision(toPop="") {
         }
     }
 
-    if (gaming) {
+    if (gamer) {
         gamingDistros = ["Pop!_OS", "Manjaro", "EndeavourOS"]
         for (i = 0; i<= gamingDistros.length; i++){
             if (!distros.includes(gamingDistros[i])){
