@@ -222,7 +222,7 @@ function customization(effort){
 
 function compUse(usecase) {
     if (usecase == "browsing") {
-        simple = yes;
+        simple = true;
         console.log("Mostly for browsing");
     }
     else if (usecase == "editing") {
