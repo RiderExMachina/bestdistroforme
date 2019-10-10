@@ -50,7 +50,7 @@ function displayResults(distro) {
     
 }
 
-function decision(toPop="") {
+function decision(toPop) {
     var distros = []
     if (newHere && windowsLike && niceOOTB && (cuttingEdge || stable)) {
         distros.push("Zorin", "Linux Mint", "Solus");
@@ -98,7 +98,7 @@ function newtoLinux(newness) {
         oldFart = true;
         console.log("Back in my day")
     }
-    decision()
+    decision("")
 }
 
 function softwareRelease(cycle) {
