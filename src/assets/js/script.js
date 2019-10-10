@@ -104,7 +104,12 @@ function decision(toPop="") {
             }
         }
         if (distros.includes("Manjaro") || distros.includes("EndeavourOS")) {
-            distros.filter(function(item) { notForNoobs = ["Manjaro", "EndeavourOS"]; for (i=0; i<= notForNoobs.length; i++) {return item !== }}
+            distros.filter(function(item) { 
+                notStable = ["Manjaro", "EndeavourOS"]; 
+                for (i=0; i<= notStable.length; i++) {
+                    return item !== notStable[i]
+                }
+            }
         }
     }
     if (gaming) {
@@ -125,7 +130,12 @@ function decision(toPop="") {
             }
         }
         if (distros.includes("Manjaro") || distros.includes("EndeavourOS")) {
-            distros.filter(function(item) { notForNoobs = ["Manjaro", "EndeavourOS"]; for (i=0; i<= notForNoobs.length; i++) {return item !== }}
+            distros.filter(function(item) { 
+                notForNoobs = ["Manjaro", "EndeavourOS"]; 
+                for (i=0; i<= notForNoobs.length; i++) {
+                    return item !== notForNoobs[i];
+                }
+            }
         }
     }
     if (distros.length == 0) {
@@ -141,6 +151,7 @@ function decision(toPop="") {
     if (chosen == undefined) {
         decision();
     }
+    console.log(distros)
     console.log(chosen)
     displayResults(chosen)
 }
