@@ -47,6 +47,12 @@ function displayResults(distro) {
                 }
             recommendedDE = "<br/>Because you said you preferred the Windows desktop experience, we recommend " + DE + ".<br/>";
             }
+            if (info.name == "Fedora"){
+                recommendedDE = "<br/>Because you said you preferred the Windows desktop experience, we recommend the <a href='https://spins.fedoraproject.org/en/cinnamon/'>Cinnamon</a> spin.<br/>"
+            }
+            if (info.name == "Debian"){
+                recommendedDE = "<br/>Because you said you preferred the Windows desktop experience, we recommend the Cinnamon or KDE desktop environments.<br/>"
+            }
         }
         if (macLike) {
             if (deCheck.includes(",")) {
@@ -65,11 +71,16 @@ function displayResults(distro) {
             recommendedDE = "<br/>Because you said you preferred the macOS desktop experience, we recommend " + DE + ".<br/>";
             }
             if (info.name == "ZorinOS") {
-                recommendedDE = "<br/>You will need to purchase ZorinOS Ultimate if you want a macOS-like experience.<br />"
+                recommendedDE = "<br/>You will need to purchase ZorinOS Ultimate if you want a macOS-like experience.<br/>";
+            }
+            if (info.name == "Kubuntu") {
+                recommendedDE = "<br/>Because you said you prefer the macOS desktop experience, we recommend installing the Latte Dock extension.<br/>";
             }
         }
-        
-        if (info.name == "Ubuntu" || info.name == "Ubuntu MATE" || info.name == "Kubuntu" || info.name == "Xubuntu" || info.name == "Ubuntu Budgie" || info.name == "Zorin" || info.name == "Pop!_OS") {
+        if (info.name == "Ubuntu MATE"){
+            recommendedDE = "<br>You can use the MATE Tweak Tool to have a macOS or Windows-like experience.<br/>";
+        }
+        if (info.name == "Ubuntu" || info.name == "Xubuntu" || info.name == "Ubuntu Budgie" || info.name == "Pop!_OS") {
             recommendedDE = ""
         }
 
@@ -102,6 +113,16 @@ function displayResults(distro) {
 }
 
 function decision(toPop="") {
+
+    if (niceOOTB && macLike) {
+        if (distros.includes("Kubuntu")) {
+            for (i=0; i < distros.length; i++) {
+                if (distros[i] === "Kubuntu") {
+                    distros.splice(i, 1)
+                }
+            }
+        }
+    }
   
     if (distros.length == 0) {
         for (i = 0; i < autoDistros.length; i++){
@@ -149,6 +170,7 @@ function newtoLinux(newness) {
                     distros.splice(i, 1)
                 }
             }
+
         }
     }
     if (newness == "arch-user") {
@@ -174,19 +196,21 @@ function softwareRelease(cycle) {
             }
         }
         if (distros.includes("Manjaro") || distros.includes("EndeavourOS")) {
-            distros.filter(function(item) { 
-                notStable = ["Manjaro", "EndeavourOS"]; 
-                for (i=0; i< notStable.length; i++) {
-                    return item !== notStable[i]
+            for (i=0; i < distros.length; i++) {
+                if (distros[i] === "Manjaro") {
+                    distros.splice(i, 1)
                 }
-            })
+                if (distros[i] === "EndeavourOS") {
+                    distros.splice(i, 1)
+                }
+            }
         }
     }
     else if (cycle == "kinda-quickly") {
         cuttingEdge = true;
         console.log("I'm a tech enthusiast")
 
-        cuttingEdgeDistros = ["Ubuntu", "Kubuntu", "Ubuntu Mate", "Xubuntu", "Ubuntu Budgie", "Debian Testing", "Solus", "Fedora"]
+        cuttingEdgeDistros = ["Ubuntu", "Kubuntu", "Ubuntu Mate", "Xubuntu", "Ubuntu Budgie", "Debian", "Solus", "Fedora"]
         for (i = 0; i< cuttingEdgeDistros.length; i++){
             if (!distros.includes(cuttingEdgeDistros[i])){
                 distros.push(cuttingEdgeDistros[i]);    
@@ -201,6 +225,14 @@ function softwareRelease(cycle) {
         for (i = 0; i< bleedingEdgeDistros.length; i++){
             if (!distros.includes(bleedingEdgeDistros[i])){
                 distros.push(bleedingEdgeDistros[i]);    
+            }
+        }
+        
+        if (distros.includes("elementaryOS")) {
+            for (i=0; i < distros.length; i++) {
+                if (distros[i] === "elementaryOS") {
+                    distros.splice(i, 1)
+                }
             }
         }
     
