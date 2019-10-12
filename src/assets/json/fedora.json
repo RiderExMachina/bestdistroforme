@@ -1,6 +1,7 @@
 {
 	"name":"Fedora",
 	"based_on": "Fedora",
+	"package_manager": "DNF",
 	"considered_upstream": true,
 	"actually_upstream": true,
 	"desktop_envs": "GNOME",

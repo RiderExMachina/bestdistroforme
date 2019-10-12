@@ -1,0 +1,16 @@
+{
+	"name":"Ubuntu Budgie",
+	"based_on": "Ubuntu",
+	"package_manager": "Apt",
+	"desktop_envs": "Budgie",
+
+	"mac_like": true,
+	"windows_like": true,
+
+	"download_link": "https://ubuntubudgie.org/downloads",
+	"linux_delta": null,
+	"distro_test": "https://distrotest.net/Ubuntu%20Budgie",
+	"distro_watch": "https://distrowatch.com/table.php?distribution=ubuntubudgie",
+
+	"description": "Ubuntu Budgie prides itself on being friendly to newcomers from other Operating Systems, easy to update and maintain, and customizable, all while being powerful, stable, and optimized for performance."
+}

@@ -1,6 +1,7 @@
 {
 	"name":"openSUSE Tumbleweed",
 	"based_on": "openSUSE",
+	"package_manager": "Zypper, YaST",
 	"considered_upstream": true,
 	"actually_upstream": true,
 	"desktop_envs": "GNOME, KDE, XFCE",

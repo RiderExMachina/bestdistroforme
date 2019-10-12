@@ -1,6 +1,7 @@
 {
     "name" : "elementaryOS",
     "based_on" : "Ubuntu",
+    "package_manager": "Apt",
     "considered_upstream" : false,
     "actually_upstream": false,
     "desktop_envs" : "Pantheon",

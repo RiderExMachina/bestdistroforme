@@ -1,11 +1,12 @@
 {
     "name" : "ZorinOS",
     "based_on" : "Ubuntu",
+    "package_manager" : "Apt",
     "considered_upstream" : false,
     "actually_upstream": false,
     "desktop_envs" : "Modified GNOME",
     
-    "mac_like" : true,
+    "mac_like" : false,
     "windows_like": true,
     
     "ppa_support": true,

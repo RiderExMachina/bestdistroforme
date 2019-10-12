@@ -1,0 +1,17 @@
+{
+	"name": "CentOS",
+	"based_on": "Red Hat",
+	"considered_upstream": false,
+	"actually_upstream": false,
+	"desktop_envs": "Gnome, XFCE, KDE",
+
+	"mac_like": true,
+	"windows_like": true,
+
+	"download_link": "https://centos.org/download/",
+	"linux_delta": "https://linuxdelta.com/distro/CentOS",
+	"distro_test": "https://distrotest.net/CentOS",
+	"distro_watch": "https://distrowatch.com/table.php?distribution=centos",
+
+	"description": "CentOS is a very stable distro based on Red Hat Enterprise Linux. It is mostly considered a server distro, but can definitely be used as a rock solid desktop operating system. We recommend CentOS Stream for slightly more updates."
+}

@@ -1,6 +1,7 @@
 {
 	"name":"Manjaro",
 	"based_on": "Arch",
+	"package_manager": "Pacman, Yay",
 	"considered_upstream": false,
 	"actually_upstream": false,
 	"desktop_envs": "XFCE, GNOME, KDE",
