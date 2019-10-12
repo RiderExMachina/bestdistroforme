@@ -189,7 +189,7 @@ function softwareRelease(cycle) {
         stable = true;
         console.log("Making sure my computer runs for a long time");
 
-        stableDistros = ["Debian Stable", "CentOS"]
+        stableDistros = ["Debian", "CentOS", "openSUSE Leap"]
         for (i = 0; i< stableDistros.length; i++){
             if (!distros.includes(stableDistros[i])){
                 distros.push(stableDistros[i]);    
@@ -266,6 +266,14 @@ function customization(effort){
     else if (effort == "arch-user") {
         dirtyHands = true;
         console.log("Gets hands dirty");
+
+        if (distros.includes("elementaryOS")) {
+            for (i=0; i < distros.length; i++) {
+                if (distros[i] === "elementaryOS") {
+                    distros.splice(i, 1)
+                }
+            }
+        }
     }
     document.getElementById("content").innerHTML = `
         <h3>How quickly do you want new software?</h3>
