@@ -4,7 +4,7 @@
     "package_manager": "Apt",
     "considered_upstream" : false,
     "actually_upstream": false,
-    "desktop_envs" : ["Cinnamon, MATE, XFCE"],
+    "desktop_envs" : "Cinnamon, MATE, XFCE",
     
     "mac_like" : false,
     "windows_like": true,
