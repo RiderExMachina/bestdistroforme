@@ -30,7 +30,11 @@ footer {
 }
 #recommended {
 	font-weight: bold;
-	size: 1.25em;
+	font-size: 1.25em;
+}
+#information {
+	font-size: 0.9em;
+	font-style: italic;
 }
 
 /* Classes */
