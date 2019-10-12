@@ -5,7 +5,7 @@ var macLike = false;
 var niceOOTB = false;
 var bleedingEdge = false;
 var cuttingEdge = false;
-var stable = false; 
+var stable = false;
 var dirtyHands = false;
 var newHere = false;
 var roundTheBlock = false;
@@ -19,7 +19,15 @@ function displayResults(distro) {
     file = "./assets/json/" + distro +".json";
     console.log(file)
 
-    var results = $.getJSON(file, function(info) { 
+    var oReq = new XMLHttpRequest();
+    oReq.addEventListener("load", function (){
+        try {
+            var info = JSON.parse(this.responseText);
+        }
+        catch (e){
+            console.log("err: " + file + " isn't valid JSON.");
+            return;
+        }
 
         document.getElementById("content").innerHTML = `
         We recommend <span id='recommended'>` + info.name + `</span>
@@ -34,18 +42,18 @@ function displayResults(distro) {
         <br/>
         <b>Information:</b>
         <br/>`
-         + info.description + 
-         `<br /><br /><span id='more-info'>
-         <a href='`+ info.linux_delta +`'>Linux Delta Rating</a> | 
-         <a href='`+ info.distro_test +`'>Try it out</a> | 
-         <a href='` + info.distro_watch + `'>Distro Watch Page</a></span> <br /> <br />
-         <button onclick="javascript:decision('`+ base +`')">Not a fan</button>`;
-     });
-    
-    file.onerror = function() {
+        + info.description +
+        `<br /><br /><span id='more-info'>
+        <a href='`+ info.linux_delta +`'>Linux Delta Rating</a> |
+        <a href='`+ info.distro_test +`'>Try it out</a> |
+        <a href='` + info.distro_watch + `'>Distro Watch Page</a></span> <br /> <br />
+        <button onclick="javascript:decision('`+ base +`')">Not a fan</button>`;
+    });
+    oReq.addEventListener("error", function (){
         document.getElementById("content").innerHTML = "The system decided you should try " + base + " , but doesn't seem to have an entry in its database. Please report the error <a href='https://github.com/RiderExMachina/bestdistroforme/issues'>on the Github page</a>, including the distro and what choices you made (if you can't remember, press F12, click on the \"Console\" tab, then copy the words from . Sorry for the inconvenience!";
-    }
-    
+    });
+    oReq.open("GET", file);
+    oReq.send();
 }
 
 function decision(toPop="") {
@@ -55,16 +63,16 @@ function decision(toPop="") {
         distros_like_win = ["Manjaro", "Zorin", "Linux Mint", "Ubuntu Mate", "Kubuntu", "Fedora", "openSuse Tumbleweed"];
         for (i = 0; i<= distros_like_win.length; i++){
             if (!distros.includes(distros_like_win[i])){
-                distros.push(distros_like_win[i]);    
+                distros.push(distros_like_win[i]);
             }
         }
     }
-    
+
     if (macLike) {
         distros_like_mac = ["elementaryOS", "Pop!_OS", "Zorin", "Kubuntu", "deepin", "Xubuntu", "Ubuntu Mate"]
         for (i = 0; i<= distros_like_mac.length; i++){
             if (!distros.includes(distros_like_mac[i])){
-                distros.push(distros_like_mac[i]);    
+                distros.push(distros_like_mac[i]);
             }
         }
     }
@@ -73,16 +81,16 @@ function decision(toPop="") {
         prettyDistros = ["elementaryOS", "Pop!_OS", "Zorin", "Kubuntu", "deepin", "Ubuntu Mate", "openSuse Tumbleweed"]
         for (i = 0; i<= prettyDistros.length; i++){
             if (!distros.includes(prettyDistros[i])){
-                distros.push(prettyDistros[i]);    
+                distros.push(prettyDistros[i]);
             }
         }
     }
-    
+
     if (bleedingEdge) {
         bleedingEdgeDistros = ["openSuse Tumbleweed", "EndeavourOS", "Manjaro"]
         for (i = 0; i<= bleedingEdgeDistros.length; i++){
             if (!distros.includes(bleedingEdgeDistros[i])){
-                distros.push(bleedingEdgeDistros[i]);    
+                distros.push(bleedingEdgeDistros[i]);
             }
         }
     }
@@ -91,21 +99,21 @@ function decision(toPop="") {
         cuttingEdgeDistros = ["Ubuntu", "Kubuntu", "Ubuntu Mate", "Xubuntu", "Ubuntu Budgie", "Debian Testing", "Solus", "Fedora"]
         for (i = 0; i<= cuttingEdgeDistros.length; i++){
             if (!distros.includes(cuttingEdgeDistros[i])){
-                distros.push(cuttingEdgeDistros[i]);    
+                distros.push(cuttingEdgeDistros[i]);
             }
         }
     }
-    
+
     if (stable) {
         stableDistros = ["Debian Stable", "CentOS"]
         for (i = 0; i<= stableDistros.length; i++){
             if (!distros.includes(stableDistros[i])){
-                distros.push(stableDistros[i]);    
+                distros.push(stableDistros[i]);
             }
         }
         if (distros.includes("Manjaro") || distros.includes("EndeavourOS")) {
-            distros.filter(function(item) { 
-                notStable = ["Manjaro", "EndeavourOS"]; 
+            distros.filter(function(item) {
+                notStable = ["Manjaro", "EndeavourOS"];
                 for (i=0; i<= notStable.length; i++) {
                     return item !== notStable[i]
                 }
@@ -117,22 +125,22 @@ function decision(toPop="") {
         gamingDistros = ["Pop!_OS", "Manjaro", "EndeavourOS"]
         for (i = 0; i<= gamingDistros.length; i++){
             if (!distros.includes(gamingDistros[i])){
-                distros.push(gamingDistros[i]);    
+                distros.push(gamingDistros[i]);
             }
         }
     }
-    
+
 
     if (newHere) {
         newDistros = ["Zorin", "Pop!_OS", "Linux Mint", "elementaryOS", "Ubuntu Mate", "Kubuntu", "Solus"];
         for (i = 0; i<= newDistros.length; i++){
             if (!distros.includes(newDistros[i])){
-                distros.push(newDistros[i]);    
+                distros.push(newDistros[i]);
             }
         }
         if (distros.includes("Manjaro") || distros.includes("EndeavourOS")) {
-            distros.filter(function(item) { 
-                notForNoobs = ["Manjaro", "EndeavourOS"]; 
+            distros.filter(function(item) {
+                notForNoobs = ["Manjaro", "EndeavourOS"];
                 for (i=0; i<= notForNoobs.length; i++) {
                     return item !== notForNoobs[i];
                 }
@@ -181,7 +189,7 @@ function softwareRelease(cycle) {
     else if (cycle == "kinda-quickly") {
         console.log("I'm a tech enthusiast")
         cuttingEdge = true;
-    }   
+    }
     else if (cycle == "arch-user") {
         console.log("I like Arch, BTW")
         bleedingEdge = true;
@@ -193,7 +201,7 @@ function softwareRelease(cycle) {
                 <button class="distro-show" onclick="javascript:newtoLinux('baby')">Never used it before</button>
                 <button class="distro-show" onclick="javascript:newtoLinux('arch-user')">I've used it a bit</button>
                 <button class="distro-show" onclick="javascript:newtoLinux('old-fart')">I've used it a lot</button>
-        </section>   
+        </section>
     `;
 }
 
@@ -215,7 +223,7 @@ function customization(effort){
                 <button class="distro-show" onclick="javascript:softwareRelease('no-cares')">When it's stable</button>
                 <button class="distro-show" onclick="javascript:softwareRelease('kinda-quickly')">Once it's been tested</button>
                 <button class="distro-show" onclick="javascript:softwareRelease('arch-user')">As soon as it's released</button>
-        </section>   
+        </section>
     `;
 
 }
@@ -240,7 +248,7 @@ function compUse(usecase) {
                 <button class="distro-show" onclick="javascript:customization('littlebit')">A Little is Fine</button>
                 <button class="distro-show" onclick="javascript:customization('arch-user')">Change All the Things</button>
         </section>
-    `;   
+    `;
 }
 
 function desktopType(desktop) {
@@ -276,5 +284,5 @@ function autoChoice() {
     }
     console.log("Choose for me")
     displayResults(distro)
-    
+
 };
