@@ -1,0 +1,18 @@
+{
+	"name":"openSUSE Tumbleweed",
+	"based_on": "openSUSE",
+	"package_manager": "Zypper, YaST",
+	"considered_upstream": true,
+	"actually_upstream": true,
+	"desktop_envs": "GNOME, KDE, XFCE",
+
+	"mac_like": true,
+	"windows_like": true,
+
+	"download_link": "https://software.opensuse.org/distributions/tumbleweed",
+	"linux_delta": "https://linuxdelta.com/distro/openSuse",
+	"distro_test": "https://distrotest.net/openSUSE",
+	"distro_watch": "https://distrowatch.com/table.php?distribution=opensuse",
+
+	"description": "<i>Any user who wished to have the newest packages will want Tumbleweed. Tumbleweed appeals to Power Users, Software Developers, and Gamers. If you require the latest software stacks or need a stable platform closest to bleeding edge Linux, Tumbleweed is the choice for you.</i> <br/>- Tumbleweed Info Blurb "
+}

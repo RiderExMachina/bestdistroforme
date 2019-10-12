@@ -27,6 +27,46 @@ function displayResults(distro) {
         catch (e){
             console.log("err: " + file + " isn't valid JSON.");
             return;
+          
+        var recommendedDE = ""
+        deCheck = info.desktop_envs
+        if (windowsLike) {
+            if (deCheck.includes(",")) {
+                if (deCheck.includes("Cinnamon")){
+                    DE = "KDE";
+                }
+                else if (deCheck.includes("KDE")) {
+                    DE = "KDE";
+                }
+                else if (deCheck.includes("MATE")) {
+                    DE = "MATE";
+                }   
+                else if (deCheck.includes("Budgie")) {
+                    DE = "Budgie";
+                }
+            recommendedDE = "<br/>Because you said you preferred the Windows desktop experience, we recommend " + DE + ".<br/>";
+            }
+        }
+        if (macLike) {
+            if (deCheck.includes(",")) {
+                if (deCheck.includes("GNOME")){
+                    DE = "GNOME";
+                }
+                else if (deCheck.includes("Budgie")){
+                    DE = "Budgie";
+                }
+                else if (deCheck.includes("KDE")) {
+                    DE = "KDE with the Latte Dock extension";
+                }
+                else if (deCheck.includes("XFCE")) {
+                    DE = "XFCE";
+                }
+            recommendedDE = "<br/>Because you said you preferred the macOS desktop experience, we recommend " + DE + ".<br/>";
+            }
+        }
+        
+        if (info.name == "Ubuntu" || info.name == "Ubuntu MATE" || info.name == "Kubuntu" || info.name == "Xubuntu" || info.name == "Ubuntu Budgie" || info.name == "Zorin" || info.name == "Pop!_OS") {
+            recommendedDE = ""
         }
 
         document.getElementById("content").innerHTML = `
@@ -37,7 +77,7 @@ function displayResults(distro) {
         <br />
         <b>Desktop Environments:</b>
         <br />
-        ` + info.desktop_envs +
+        ` + info.desktop_envs + recommendedDE +
         `
         <br/>
         <b>Information:</b>
@@ -61,7 +101,7 @@ function decision(toPop="") {
 
     if (windowsLike) {
         distros_like_win = ["Manjaro", "Zorin", "Linux Mint", "Ubuntu Mate", "Kubuntu", "Fedora", "openSuse Tumbleweed"];
-        for (i = 0; i<= distros_like_win.length; i++){
+        for (i = 0; i< distros_like_win.length; i++){
             if (!distros.includes(distros_like_win[i])){
                 distros.push(distros_like_win[i]);
             }
@@ -69,8 +109,8 @@ function decision(toPop="") {
     }
 
     if (macLike) {
-        distros_like_mac = ["elementaryOS", "Pop!_OS", "Zorin", "Kubuntu", "deepin", "Xubuntu", "Ubuntu Mate"]
-        for (i = 0; i<= distros_like_mac.length; i++){
+        distros_like_mac = ["elementaryOS", "Pop!_OS", "Zorin", "Kubuntu", "Xubuntu", "Ubuntu Mate"]
+        for (i = 0; i< distros_like_mac.length; i++){
             if (!distros.includes(distros_like_mac[i])){
                 distros.push(distros_like_mac[i]);
             }
@@ -78,8 +118,8 @@ function decision(toPop="") {
     }
 
     if (niceOOTB) {
-        prettyDistros = ["elementaryOS", "Pop!_OS", "Zorin", "Kubuntu", "deepin", "Ubuntu Mate", "openSuse Tumbleweed"]
-        for (i = 0; i<= prettyDistros.length; i++){
+        prettyDistros = ["elementaryOS", "Pop!_OS", "Zorin", "Kubuntu", "Ubuntu Mate", "openSuse Tumbleweed"]
+        for (i = 0; i< prettyDistros.length; i++){
             if (!distros.includes(prettyDistros[i])){
                 distros.push(prettyDistros[i]);
             }
@@ -88,7 +128,7 @@ function decision(toPop="") {
 
     if (bleedingEdge) {
         bleedingEdgeDistros = ["openSuse Tumbleweed", "EndeavourOS", "Manjaro"]
-        for (i = 0; i<= bleedingEdgeDistros.length; i++){
+        for (i = 0; i< bleedingEdgeDistros.length; i++){
             if (!distros.includes(bleedingEdgeDistros[i])){
                 distros.push(bleedingEdgeDistros[i]);
             }
@@ -97,7 +137,7 @@ function decision(toPop="") {
 
     if (cuttingEdge) {
         cuttingEdgeDistros = ["Ubuntu", "Kubuntu", "Ubuntu Mate", "Xubuntu", "Ubuntu Budgie", "Debian Testing", "Solus", "Fedora"]
-        for (i = 0; i<= cuttingEdgeDistros.length; i++){
+        for (i = 0; i< cuttingEdgeDistros.length; i++){
             if (!distros.includes(cuttingEdgeDistros[i])){
                 distros.push(cuttingEdgeDistros[i]);
             }
@@ -106,16 +146,11 @@ function decision(toPop="") {
 
     if (stable) {
         stableDistros = ["Debian Stable", "CentOS"]
-        for (i = 0; i<= stableDistros.length; i++){
+        for (i = 0; i< stableDistros.length; i++){
             if (!distros.includes(stableDistros[i])){
                 distros.push(stableDistros[i]);
             }
         }
-        if (distros.includes("Manjaro") || distros.includes("EndeavourOS")) {
-            distros.filter(function(item) {
-                notStable = ["Manjaro", "EndeavourOS"];
-                for (i=0; i<= notStable.length; i++) {
-                    return item !== notStable[i]
                 }
             })
         }
@@ -123,7 +158,7 @@ function decision(toPop="") {
 
     if (gamer) {
         gamingDistros = ["Pop!_OS", "Manjaro", "EndeavourOS"]
-        for (i = 0; i<= gamingDistros.length; i++){
+        for (i = 0; i< gamingDistros.length; i++){
             if (!distros.includes(gamingDistros[i])){
                 distros.push(gamingDistros[i]);
             }
@@ -133,30 +168,38 @@ function decision(toPop="") {
 
     if (newHere) {
         newDistros = ["Zorin", "Pop!_OS", "Linux Mint", "elementaryOS", "Ubuntu Mate", "Kubuntu", "Solus"];
-        for (i = 0; i<= newDistros.length; i++){
+        for (i = 0; i< newDistros.length; i++){
             if (!distros.includes(newDistros[i])){
                 distros.push(newDistros[i]);
             }
         }
         if (distros.includes("Manjaro") || distros.includes("EndeavourOS")) {
-            distros.filter(function(item) {
-                notForNoobs = ["Manjaro", "EndeavourOS"];
-                for (i=0; i<= notForNoobs.length; i++) {
-                    return item !== notForNoobs[i];
+            console.log("User answered new to Linux. Removing Manjaro and EndeavourOS")          
+            notForNoobs = ["Manjaro", "EndeavourOS"]; 
+            for (i=0; i < notForNoobs.length; i++) {
+                console.log(notForNoobs[i])
+                for (j=0; j < distros.length; j++) {
+                    console.log(distros[j])
+                    if (distros[j] === notForNoobs[i]) {
+                        distros.splice(i, 1)
+                    }
                 }
-            })
+            }
         }
     }
     if (distros.length == 0) {
-        for (i = 0; i <= autoDistros.length; i++){
+        for (i = 0; i < autoDistros.length; i++){
         distros.push(autoDistros[i]);
     }
     }
     if (toPop != "") {
         console.log("Removing " + toPop);
-        distros = distros.filter(function(item) { return item !== toPop});
+        for (i=0; i < distros.length; i++)
+        distros.splice(i, 1);
+        //distros.shift();
     }
-    chosen = distros[Math.round(Math.random() * distros.length)];
+    //chosen = distros[Math.round(Math.random() * (distros.length - 1))];
+    chosen = distros[0]
     if (chosen == undefined) {
         decision();
     }
@@ -173,8 +216,7 @@ function newtoLinux(newness) {
     if (newness == "arch-user") {
         roundTheBlock = true;
         console.log("Been around the block");
-    }
-    if (newness == "old-fart") {
+    }    if (newness == "old-fart") {
         oldFart = true;
         console.log("Back in my day");
     }
@@ -261,8 +303,6 @@ function desktopType(desktop) {
         console.log("I like macOS' desktop");
     }
     else if (desktop == "whatever") {
-        windowsLike = true;
-        macLike = true;
         console.log("I don't care, so long as it works")
     }
 

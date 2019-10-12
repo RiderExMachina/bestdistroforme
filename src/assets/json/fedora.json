@@ -1,0 +1,18 @@
+{
+	"name":"Fedora",
+	"based_on": "Fedora",
+	"package_manager": "DNF",
+	"considered_upstream": true,
+	"actually_upstream": true,
+	"desktop_envs": "GNOME",
+
+	"mac_like": true,
+	"windows_like": false,
+
+	"download_link": "https://getfedora.org/en/workstation/download/",
+	"linux_delta": "https://linuxdelta.com/distro/Fedora",
+	"distro_test": "https://distrotest.net/Fedora%20Workstation",
+	"distro_watch": "https://distrowatch.com/table.php?distribution=fedora",
+
+	"description": "Fedora is a distro aimed mostly at tech enthusiasts and programmers. It's known for its stability, security, and cutting edge software releases. Officially only the GNOME Desktop Environment is supported, but there are <a href='https://spins.fedoraproject.org/'>alternative spins available</a> if you prefer other desktop environments."
+}

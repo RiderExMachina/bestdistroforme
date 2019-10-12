@@ -1,6 +1,7 @@
 {
     "name" : "Ubuntu",
     "based_on" : "Debian",
+    "package_manager" : "Apt",
     "considered_upstream" : true,
     "actually_upstream": false,
     "desktop_envs" : "Gnome",

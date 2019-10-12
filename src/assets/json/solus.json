@@ -1,0 +1,17 @@
+{
+	"name":"Solus",
+	"based_on": "Solus",
+	"package_manager": "eopkg",
+
+	"desktop_envs": "Budgie, GNOME, MATE",
+
+	"mac_like": true,
+	"windows_like": true,
+
+	"download_link": "https://getsol.us/download/",
+	"linux_delta": "https://linuxdelta.com/distro/Solus",
+	"distro_test": "https://distrotest.net/Solus",
+	"distro_watch": "https://distrowatch.com/table.php?distribution=solus",
+
+	"description": "Solus aims to provide the best experience for any kind of use. It includes tools and programs so regardless of if you're just a regular user, a developer, a content creator, or a gamer, you should be able to get to work (or play) as soon as you install the distro."
+}

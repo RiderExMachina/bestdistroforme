@@ -1,0 +1,16 @@
+{
+	"name":"EndeavourOS",
+	"based_on": "Arch",
+	"package_manager": "Pacman, Yay",
+	"desktop_envs": "XFCE",
+
+	"mac_like": true,
+	"windows_like": true,
+
+	"download_link": "https://endeavouros.com/download/",
+	"linux_delta": null,
+	"distro_test": "https://distrotest.net/EndeavourOS",
+	"distro_watch": "https://distrowatch.com/table.php?distribution=endeavour",
+
+	"description": "Picking up the reigns when the Antergos project ended, EndeavourOS seeks to be Vanilla Arch Linux but easy to install and pre-configured with all you need to get started using your PC."
+}

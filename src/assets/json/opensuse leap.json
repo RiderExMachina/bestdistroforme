@@ -1,0 +1,18 @@
+{
+	"name":"openSUSE Leap",
+	"based_on": "openSUSE",
+	"package_manager": "Zypper, YaST",
+	"considered_upstream": false,
+	"actually_upstream": false,
+	"desktop_envs": "GNOME, KDE",
+
+	"mac_like": true,
+	"windows_like": true,
+
+	"download_link": "https://software.opensuse.org/distributions/leap",
+	"linux_delta": "https://linuxdelta.com/distro/openSuse",
+	"distro_test": "https://distrotest.net/openSUSE",
+	"distro_watch": "https://distrowatch.com/table.php?distribution=opensuse",
+
+	"description": "<i>New and experienced Linux users get the most usable Linux distribution and stabilized operating system with openSUSE's regular release. Receive updates and secure your OS with openSUSE's latest distribution. Pick your desktop, configure your system, and enjoy the platform of choice for developers, administrators, sofware vendors, and people who want their computer to just work.</i> <br/>- Leap Info Blurb"
+}
