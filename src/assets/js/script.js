@@ -187,6 +187,7 @@ function newtoLinux(newness) {
 function softwareRelease(cycle) {
     if (cycle == "no-cares") {
         stable = true;
+        // TODO: Use this flag to recommend Ubuntu LTS
         console.log("Making sure my computer runs for a long time");
 
         stableDistros = ["Debian", "CentOS", "openSUSE Leap"]
@@ -210,7 +211,7 @@ function softwareRelease(cycle) {
         cuttingEdge = true;
         console.log("I'm a tech enthusiast")
 
-        cuttingEdgeDistros = ["Ubuntu", "Kubuntu", "Ubuntu Mate", "Xubuntu", "Ubuntu Budgie", "Debian", "Solus", "Fedora"]
+        cuttingEdgeDistros = ["Ubuntu", "Kubuntu", "Ubuntu Mate", "Xubuntu", "Ubuntu Budgie", "Debian", "Solus", "Fedora", "Linux Mint"]
         for (i = 0; i< cuttingEdgeDistros.length; i++){
             if (!distros.includes(cuttingEdgeDistros[i])){
                 distros.push(cuttingEdgeDistros[i]);    
