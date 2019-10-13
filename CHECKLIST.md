@@ -32,8 +32,8 @@ Checked boxes are the images we have. Prioritize unchecked boxes as much as poss
 
 ### Ubuntu
 - [ ] Ubuntu
-- [ ] Xubuntu
+- [*] Xubuntu
 - [ ] Lubuntu
-- [ ] Ubuntu MATE
+- [*] Ubuntu MATE
 - [ ] Ubuntu Budgie
 
