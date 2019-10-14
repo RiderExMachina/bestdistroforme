@@ -115,8 +115,8 @@ function displayResults(distro) {
         <b>Information:</b>
         <br/>`
         + info.description + moreInfo +
-        `<a href="javascript:void(0)" onclick="decision('`+ base +`')">Click here</a> if you've tried this distro before and didn't like it. | 
-        <span id="next">If you want to see another option, <a href="javascript:void(0)" onclick="next('`+ base +`')">click here</a>.</span>`;
+        `<a href="javascript:void(0)" onclick="decision('`+ base +`')">Click here</a> if you've tried this distro before and weren't a fan. |
+        If you want to see another option, <a href="javascript:void(0)" onclick="next('`+ base +`')">click here</a>.<br/>`;
 
        /* <section id="sidebar>
           `;
