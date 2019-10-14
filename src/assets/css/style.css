@@ -29,14 +29,12 @@ footer {
 	font-size: .9em;
 }
 #recommended {
-	font-weight: bold;
+	font-weight: 700;
 	font-size: 1.25em;
 }
-#information {
-	font-size: 0.9em;
-	font-style: italic;
-}
-
+/*#next {
+	margin-right: 0;
+}*/
 /* Classes */
 .dl-link {
 	font-size: .8em;
@@ -48,4 +46,8 @@ footer {
 	min-height: 100px;
 	max-width: 300px;
 	max-height: 300px;
+}
+.information {
+	font-size: 0.9em;
+	font-style: italic;
 }

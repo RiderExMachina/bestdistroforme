@@ -27,8 +27,11 @@ function displayResults(distro) {
         }
         catch (e){
             console.log("err: " + file + " isn't valid JSON.");
+            document.getElementById("content").innerHTML = "The system decided you should try " + base + " , but either can't load it, or doesn't seem to have an entry in its database. Please report the error <a href='https://github.com/RiderExMachina/bestdistroforme/issues'>on the Github page</a>, including the distro and what choices you made (if you can't remember, press F12, click on the \"Console\" tab, and then copy/screenshot everything in the window). Sorry for the inconvenience!";
             return;
         }  
+
+        // Recommended DEs BEGIN
         var recommendedDE = ""
         deCheck = info.desktop_envs
         if (windowsLike) {
@@ -77,15 +80,28 @@ function displayResults(distro) {
                 recommendedDE = "<br/>Because you said you prefer the macOS desktop experience, we recommend installing the Latte Dock extension.<br/>";
             }
         }
-        if (info.name == "Ubuntu MATE"){
-            recommendedDE = "<br>You can use the MATE Tweak Tool to have a macOS or Windows-like experience.<br/>";
-        }
-        if (info.name == "Ubuntu" || info.name == "Xubuntu" || info.name == "Ubuntu Budgie" || info.name == "Pop!_OS") {
+        if (info.name == "Ubuntu" || info.name == "Xubuntu" || info.name == "Ubuntu Budgie" || info.name == "Ubuntu MATE" || info.name == "Pop!_OS") {
+            if (stable) {
+                recommendedDE = "Because you said you wanted a more stable distribution, we recommend the LTS version."
+            }
             recommendedDE = ""
+        }
+        // RecommendedDEs END
+        // Linux Delta
+        if (info.linux_delta == null){
+            moreInfo = `<br /><br /><span id='more-info'>
+                        <a href='`+ info.distro_test +`'>Try it out</a> |
+                        <a href='` + info.distro_watch + `'>Distro Watch Page</a></span> <br /> <br />`
+        }
+        else {
+            moreInfo = `<br /><br /><span id='more-info'>
+                        <a href='`+ info.linux_delta +`'>Linux Delta Rating</a> |
+                        <a href='`+ info.distro_test +`'>Try it out</a> |
+                        <a href='` + info.distro_watch + `'>Distro Watch Page</a></span> <br /> <br />`
         }
 
         document.getElementById("content").innerHTML = `
-        We recommend <span id='recommended'>` + info.name + `</span>
+        <h3>We recommend <span id='recommended'>` + info.name + `</span></h3>
         <br />
         <a href='` + info.download_link +`' class='dl-link'>Download it here</a>
         <br />
@@ -93,34 +109,74 @@ function displayResults(distro) {
         <b>Desktop Environments:</b>
         <br />
         ` + info.desktop_envs + 
-        "<br /><span id='information'>" + recommendedDE + "</span>" +
+        "<br /><span class='information'>" + recommendedDE + "</span>" +
         `
         <br/>
         <b>Information:</b>
         <br/>`
-        + info.description +
-        `<br /><br /><span id='more-info'>
-        <a href='`+ info.linux_delta +`'>Linux Delta Rating</a> |
-        <a href='`+ info.distro_test +`'>Try it out</a> |
-        <a href='` + info.distro_watch + `'>Distro Watch Page</a></span> <br /> <br />
-        <button onclick="javascript:decision('`+ base +`')">Not a fan</button>`;
+        + info.description + moreInfo +
+        `<a href="javascript:void(0)" onclick="decision('`+ base +`')">Click here</a> if you've tried this distro before and didn't like it. | 
+        <span id="next">If you want to see another option, <a href="javascript:void(0)" onclick="next('`+ base +`')">click here</a>.</span>`;
+
+       /* <section id="sidebar>
+          `;
+       */
     });
     oReq.addEventListener("error", function (){
-        document.getElementById("content").innerHTML = "The system decided you should try " + base + " , but doesn't seem to have an entry in its database. Please report the error <a href='https://github.com/RiderExMachina/bestdistroforme/issues'>on the Github page</a>, including the distro and what choices you made (if you can't remember, press F12, click on the \"Console\" tab, then copy the words from . Sorry for the inconvenience!";
+        document.getElementById("content").innerHTML = "The system decided you should try " + base + " , but doesn't seem to have an entry in its database. Please report the error <a href='https://github.com/RiderExMachina/bestdistroforme/issues'>on the Github page</a>, including the distro and what choices you made (if you can't remember, press F12, click on the \"Console\" tab, then copy the words from \"Windows-Like\" or \"macOS-like\". Sorry for the inconvenience!";
     });
     oReq.open("GET", file);
     oReq.send();
 }
 
+function next(current){
+    i = distros.indexOf(current);
+    console.log("Index " + i +" = " + distros[i]);
+    if (i+1  >= distros.length){
+        console.log("Distro is at end of list, restarting.");
+        displayResults(distros[0]);
+    }
+    else{
+        console.log("Moving to the next distro")
+        displayResults(distros[i+1])
+    }
+}
 function decision(toPop="") {
 
     if (niceOOTB && macLike) {
-        if (distros.includes("Kubuntu")) {
+        if (distros.includes("Kubuntu")|| distros.includes("Xubuntu")) {
             for (i=0; i < distros.length; i++) {
                 if (distros[i] === "Kubuntu") {
+                    distros.splice(i, 1);
+                }
+            }
+            for (i=0; i < distros.length; i++) {
+                if (distros[i] === "Xubuntu") {
+                    distros.splice(i, 1);
+                }
+            }  
+        }
+    }
+
+    if (stable || newHere) {
+        if (distros.includes("Manjaro") || distros.includes("EndeavourOS")) {
+            if (stable) {
+                reason = "wanted a stable system";
+            }
+            if (newHere) {
+                reason = "are new to Linux";
+            }
+            console.log("User said they "+ reason +". Removing Manjaro and EndeavourOS")
+            
+            for (i=0; i < distros.length; i++) {
+                if (distros[i] === "Manjaro") {
+                    distros.splice(i, 1)
+                }
+                if (distros[i] === "EndeavourOS") {
                     distros.splice(i, 1)
                 }
             }
+
         }
     }
   
@@ -159,19 +215,6 @@ function newtoLinux(newness) {
                 distros.push(newDistros[i]);    
             }
         }
-        if (distros.includes("Manjaro") || distros.includes("EndeavourOS")) {
-            console.log("User answered new to Linux. Removing Manjaro and EndeavourOS")
-            
-            for (i=0; i < distros.length; i++) {
-                if (distros[i] === "Manjaro") {
-                    distros.splice(i, 1)
-                }
-                if (distros[i] === "EndeavourOS") {
-                    distros.splice(i, 1)
-                }
-            }
-
-        }
     }
     if (newness == "arch-user") {
         roundTheBlock = true;
@@ -190,20 +233,10 @@ function softwareRelease(cycle) {
         // TODO: Use this flag to recommend Ubuntu LTS
         console.log("Making sure my computer runs for a long time");
 
-        stableDistros = ["Debian", "CentOS", "openSUSE Leap"]
+        stableDistros = ["Debian", "CentOS", "Leap"]
         for (i = 0; i< stableDistros.length; i++){
             if (!distros.includes(stableDistros[i])){
                 distros.push(stableDistros[i]);    
-            }
-        }
-        if (distros.includes("Manjaro") || distros.includes("EndeavourOS")) {
-            for (i=0; i < distros.length; i++) {
-                if (distros[i] === "Manjaro") {
-                    distros.splice(i, 1)
-                }
-                if (distros[i] === "EndeavourOS") {
-                    distros.splice(i, 1)
-                }
             }
         }
     }
@@ -222,7 +255,7 @@ function softwareRelease(cycle) {
         bleedingEdge = true;
         console.log("I like Arch, BTW")
         
-        bleedingEdgeDistros = ["openSuse Tumbleweed", "EndeavourOS", "Manjaro"]
+        bleedingEdgeDistros = ["Tumbleweed", "EndeavourOS", "Manjaro"]
         for (i = 0; i< bleedingEdgeDistros.length; i++){
             if (!distros.includes(bleedingEdgeDistros[i])){
                 distros.push(bleedingEdgeDistros[i]);    
@@ -254,7 +287,7 @@ function customization(effort){
         niceOOTB = true;
         console.log("Gotta look nice");
 
-        prettyDistros = ["elementaryOS", "Pop!_OS", "Zorin", "Kubuntu", "Ubuntu Mate", "openSuse Tumbleweed", "Manjaro", "EndeavourOS"]
+        prettyDistros = ["elementaryOS", "Pop!_OS", "Zorin", "Kubuntu", "Ubuntu Mate", "Tumbleweed", "Manjaro", "EndeavourOS"]
         for (i = 0; i< prettyDistros.length; i++){
             if (!distros.includes(prettyDistros[i])){
                 distros.push(prettyDistros[i]);    
@@ -263,6 +296,14 @@ function customization(effort){
     }
     else if (effort == "littlebit") {
         console.log("Likes to dabble");
+        
+        needTLCDistros = ["Xubuntu", "Ubuntu MATE"]
+        for (i = 0; i< needTLCDistros.length; i++){
+            if (!distros.includes(needTLCDistros[i])){
+                distros.push(needTLCDistros[i]);    
+            }
+        }
+        
     }
     else if (effort == "arch-user") {
         dirtyHands = true;
@@ -322,7 +363,7 @@ function desktopType(desktop) {
         windowsLike = true;
         console.log("I like Windows' desktop");
 
-        distros_like_win = ["Manjaro", "Zorin", "Linux Mint", "Ubuntu Mate", "Kubuntu", "Fedora", "openSuse Tumbleweed"];
+        distros_like_win = ["Manjaro", "Zorin", "Linux Mint", "Ubuntu Mate", "Kubuntu", "Fedora", "Tumbleweed"];
         for (i = 0; i< distros_like_win.length; i++){
             if (!distros.includes(distros_like_win[i])){
                 distros.push(distros_like_win[i]);    
@@ -356,7 +397,11 @@ function desktopType(desktop) {
 
 autoDistros = ["Kubuntu", "Pop!_OS", "elementaryOS", "Linux Mint", "Zorin"];
 function autoChoice() {
-    distro = autoDistros[Math.round(Math.random() * autoDistros.length)];
+    for (i =0; i < autoDistros.length; i++) {
+        distros.push(autoDistros[i])
+    }
+
+    distro = distros[Math.round(Math.random() * distros.length)];
     if (distro == undefined) {
         autoChoice()
     }

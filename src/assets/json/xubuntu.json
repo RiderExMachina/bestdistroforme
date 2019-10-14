@@ -12,7 +12,7 @@
     "ppa_support": true,
     
     "download_link" : "https://xubuntu.org",
-    "linux_delta" : "https://linuxdelta.com/distro/Xubuntu",
+    "linux_delta" : null,
     "distro_test" : "https://distrotest.net/Xubuntu/",
     "distro_watch" : "https://distrowatch.com/table.php?distribution=xubuntu",
 
