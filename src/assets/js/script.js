@@ -415,9 +415,9 @@ function desktopType(desktop) {
     document.getElementById("content").innerHTML = `
         <h3>What is your usual computer workload?</h3>
             <section id="choices">
-                <button class="distro-show" onclick="javascript:compUse('browsing')">Light - e.g. Browsing the web</button>
-                <button class="distro-show" onclick="javascript:compUse('editing')">Medium - e.g. Programming, Photo Editing</button>
-                <button class="distro-show" onclick="javascript:compUse('gaming')">Heavy - e.g. Gaming, 3D Modeling</button>
+                <button class="distro-show" onclick="javascript:compUse('browsing')">Light (e.g. Web browsing)</button>
+                <button class="distro-show" onclick="javascript:compUse('editing')">Medium (e.g. Programming)</button>
+                <button class="distro-show" onclick="javascript:compUse('gaming')">Heavy (e.g. Gaming)</button>
             </section>
     `;
 }
@@ -432,8 +432,7 @@ function quizStart() {
                 <button class="distro-show" onclick="javascript:desktopType('whatever')">Don't care</button>
             </section>
             <br /> <br /> <br />
-            Don't want to take the quiz? <a href="javascript:void(0)" onclick="javascript:autoChoice()">We can choose for you</a>
-            `;
+            Don't want to take the quiz? <a href="javascript:void(0)" onclick="javascript:autoChoice()">We can choose for you</a>`;
 }
 
 autoDistros = ["Kubuntu", "Pop!_OS", "elementaryOS", "Linux Mint", "Zorin"];
