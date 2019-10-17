@@ -14,6 +14,14 @@ var simple = false;
 var gamer = false;
 var distros = []
 
+url = document.URL
+if (url.includes("?")){
+    console.log("Manual distro detected")
+    url = url.split("?");
+    manual = url[1];
+    displayResults(manual);
+}
+
 function displayResults(distro) {
     base = distro;
     distro = distro.toLowerCase();
@@ -447,5 +455,4 @@ function autoChoice() {
     }
     console.log("Choose for me")
     displayResults(distro)
-
 };
