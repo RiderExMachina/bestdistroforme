@@ -2,9 +2,9 @@
     "name" : "elementaryOS",
     "based_on" : "Ubuntu",
     "package_manager": "Apt",
-    "considered_upstream" : false,
-    "actually_upstream": false,
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/d/db/Elementary_logo.svg",
     "desktop_envs" : "Pantheon",
+    "screenshots_folder": "assets/img/elementaryos/",
     
     "mac_like" : true,
     "windows_like": false,

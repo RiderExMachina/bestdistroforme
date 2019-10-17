@@ -15,16 +15,10 @@
     		<H2>What is the <b>best</b> distro for <b>me</b>?</H2>
     		<div id="header-subscript">The visual guide to Linux distributions and desktop environments</div>
     	</header>
+        <section id="return-to-start">
+        </section>
     	<section id="content">
-            <H3>Pick which type of desktop you're most comfortable with.</H3>
-            <section id="choices">
-                <!-- <img id="windows-like" src="assets/img/windows-like.svg" /> -->
-                <button class="distro-show" onclick="javascript:desktopType('windows')">Windows-like</button>
-                <button class="distro-show" onclick="javascript:desktopType('mac')">Mac-like</button>
-                <button class="distro-show" onclick="javascript:desktopType('whatever')">Don't care</button>
-            </section>
-            <br /> <br /> <br />
-            Don't want to take the quiz? <a href="javascript:void(0)" onclick="javascript:autoChoice()">We can choose for you</a>
+            <script>document.write(quizStart())</script>
     	</section>
 
     	<footer>Copyleft GPL v3 by <a href="https://github.com/RiderExMachina">RiderExMachina</a> &#x1f12f; <script>var year = new Date().getFullYear(); document.write(year);</script> | <a href="https://github.com/RiderExMachina/bestdistroforme">See the code here!</a> </footer>

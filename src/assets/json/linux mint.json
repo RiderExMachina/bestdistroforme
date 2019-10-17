@@ -1,11 +1,11 @@
 {
     "name" : "Linux Mint",
     "based_on" : ["Ubuntu LTS", "Debian (LMDE)"],
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Logo_Linux_Mint.png",
     "package_manager": "Apt",
-    "considered_upstream" : false,
-    "actually_upstream": false,
     "desktop_envs" : "Cinnamon, MATE, XFCE",
-    
+    "screenshots_folder": "assets/img/mint/",
+
     "mac_like" : false,
     "windows_like": true,
     

@@ -1,10 +1,10 @@
 {
 	"name":"Manjaro",
 	"based_on": "Arch",
+	"logo": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Manjaro-logo.svg",
 	"package_manager": "Pacman, Yay",
-	"considered_upstream": false,
-	"actually_upstream": false,
 	"desktop_envs": "XFCE, GNOME, KDE",
+	"screenshots_folder": "assets/img/manjaro/",
 
 	"mac_like": true,
 	"windows_like": true,

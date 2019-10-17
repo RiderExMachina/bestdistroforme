@@ -1,10 +1,10 @@
 {
 	"name":"openSUSE Tumbleweed",
 	"based_on": "openSUSE",
+	"logo": "https://en.opensuse.org/images/1/14/Button-filled-monochrome.png",
 	"package_manager": "Zypper, YaST",
-	"considered_upstream": true,
-	"actually_upstream": true,
 	"desktop_envs": "GNOME, KDE, XFCE",
+	"screenshots_folder": "assets/img/opensuse/",
 
 	"mac_like": true,
 	"windows_like": true,

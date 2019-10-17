@@ -1,10 +1,10 @@
 {
     "name" : "ZorinOS",
     "based_on" : "Ubuntu",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/7/70/Zorin_OS.svg",
     "package_manager" : "Apt",
-    "considered_upstream" : false,
-    "actually_upstream": false,
     "desktop_envs" : "Modified GNOME",
+    "screenshots_folder": "assets/img/zorin/",
     
     "mac_like" : false,
     "windows_like": true,

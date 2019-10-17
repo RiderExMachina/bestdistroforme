@@ -1,8 +1,10 @@
 {
 	"name":"Ubuntu MATE",
 	"based_on": "Ubuntu",
+	"logo": "https://upload.wikimedia.org/wikipedia/commons/0/07/Ubuntu_MATE_rondel_logo.svg",
 	"package_manager": "Apt",
 	"desktop_envs": "Mate",
+	"screenshot_folder": "assets/img/ubuntu/mate/",
 
 	"mac_like": true,
 	"windows_like": true,

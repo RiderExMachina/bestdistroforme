@@ -1,10 +1,10 @@
 {
 	"name":"Fedora",
 	"based_on": "Fedora",
+	"logo": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Fedora_logo.svg",
 	"package_manager": "DNF",
-	"considered_upstream": true,
-	"actually_upstream": true,
 	"desktop_envs": "GNOME",
+	"screenshots_folder": "assets/img/fedora/",
 
 	"mac_like": true,
 	"windows_like": false,
