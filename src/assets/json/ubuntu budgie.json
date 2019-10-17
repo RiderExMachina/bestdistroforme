@@ -1,7 +1,7 @@
 {
 	"name":"Ubuntu Budgie",
 	"based_on": "Ubuntu",
-	"logo": "https://raw.githubusercontent.com/UbuntuBudgie/assets/master/Logos/budgie-remix-logo-medium.svg",
+	"logo": "assets/icons/ubuntu budgie.svg",
 	"package_manager": "Apt",
 	"desktop_envs": "Budgie",
 	"screenshots_folder": "assets/img/ubuntu/budgie/",

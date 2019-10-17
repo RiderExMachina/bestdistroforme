@@ -1,7 +1,7 @@
 {
 	"name": "CentOS",
 	"based_on": "Red Hat",
-	"logo": "https://wiki.centos.org/ArtWork/Brand?action=AttachFile&do=get&target=centos-symbol.png",
+	"logo": "assets/icons/centos.png",
 	"desktop_envs": "Gnome, XFCE, KDE",
 	"screenshots_folder": "assets/img/centos/gnome/",
 

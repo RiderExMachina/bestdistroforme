@@ -1,7 +1,7 @@
 {
     "name" : "Xubuntu",
     "based_on" : "Ubuntu",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/a/af/Xubuntu_logo.svg",
+    "logo": "assets/icons/xubuntu.svg",
     "package_manager" : "Apt",
     "desktop_envs" : "XFCE",
     "screenshot_folder": "assets/img/ubuntu/xfce/",

@@ -2,7 +2,7 @@
 	"name":"Debian",
 	"based_on": "Debian",
 	"package_manager": "Apt",
-	"logo": "https://www.debian.org/logos/openlogo-nd.svg",
+	"logo": "assets/img/icons/debian.svg",
 	"desktop_envs": "Gnome, XFCE, KDE, LXQt, MATE, Cinnamon",
 	"screenshots_folder": "assets/img/debian/",
 

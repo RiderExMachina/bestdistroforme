@@ -1,7 +1,7 @@
 {
 	"name":"Solus",
 	"based_on": "Solus",
-	"logo": "https://getsol.us/imgs/solus.png",
+	"logo": "assets/icons/solus.png",
 	"package_manager": "eopkg",
 	"desktop_envs": "Budgie, GNOME, MATE",
 	"screenshots_folder": "assets/img/solus/",

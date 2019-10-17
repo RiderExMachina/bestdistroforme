@@ -1,7 +1,7 @@
 {
     "name" : "Ubuntu",
     "based_on" : "Debian",
-    "logo": "http://design.ubuntu.com/wp-content/uploads/logo-ubuntu_cof-orange-hex.svg",
+    "logo": "assets/icons/ubuntu.svg",
     "package_manager" : "Apt",
     "desktop_envs" : "Gnome",
     "screenshot_folder": "assets/img/ubuntu/gnome/",

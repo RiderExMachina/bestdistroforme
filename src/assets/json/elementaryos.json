@@ -2,7 +2,7 @@
     "name" : "elementaryOS",
     "based_on" : "Ubuntu",
     "package_manager": "Apt",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/d/db/Elementary_logo.svg",
+    "logo": "assets/icons/elementaryos.svg",
     "desktop_envs" : "Pantheon",
     "screenshots_folder": "assets/img/elementaryos/",
     

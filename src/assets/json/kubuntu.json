@@ -2,7 +2,7 @@
     "name" : "Kubuntu",
     "based_on" : "Debian",
     "package_manager": "Apt",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Kubuntu_logo.svg",
+    "logo": "assets/icons/kubuntu.svg",
     "desktop_envs" : "KDE",
     "screenshots_folder": "assets/img/ubuntu/kde/",
 

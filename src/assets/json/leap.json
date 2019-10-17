@@ -1,7 +1,7 @@
 {
 	"name":"openSUSE Leap",
 	"based_on": "openSUSE",
-	"logo": "https://en.opensuse.org/images/1/14/Button-filled-monochrome.png",
+	"logo": "assets/icons/opensuse.png",
 	"package_manager": "Zypper, YaST",
 	"desktop_envs": "GNOME, KDE",
 	"screenshots_folder": "assets/img/opensuse/",

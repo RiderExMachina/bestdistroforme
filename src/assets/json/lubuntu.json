@@ -2,7 +2,7 @@
     "name" : "Lubuntu",
     "based_on" : "Debian",
     "package_manager": "Apt",
-    "logo": null,
+    "logo": "assets/icons/lubuntu.svg",
     "desktop_envs" : "LXDE, LXQt",
     "screenshots_folder": "assets/img/ubuntu/lxde/",
 

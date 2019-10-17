@@ -1,7 +1,7 @@
 {
     "name" : "ZorinOS",
     "based_on" : "Ubuntu",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/7/70/Zorin_OS.svg",
+    "logo": "assets/icons/zorin.svg",
     "package_manager" : "Apt",
     "desktop_envs" : "Modified GNOME",
     "screenshots_folder": "assets/img/zorin/",

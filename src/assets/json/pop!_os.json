@@ -1,7 +1,7 @@
 {
     "name" : "Pop!_OS",
     "based_on" : "Ubuntu",
-    "logo": "https://d1vhcvzji58n1j.cloudfront.net/assets/pop/os-logo-b44ed4fc34_2560.png",
+    "logo": "assets/icons/pop.png",
     "package_manager": "Apt",
     "desktop_envs" : "Gnome",
     "screenshots_folder": "assets/img/pop/",
