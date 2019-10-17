@@ -1,0 +1,20 @@
+{
+    "name" : "Lubuntu",
+    "based_on" : "Debian",
+    "package_manager": "Apt",
+    "logo": "assets/icons/lubuntu.svg",
+    "desktop_envs" : "LXDE, LXQt",
+    "screenshots_folder": "assets/img/ubuntu/lxde/",
+
+    "mac_like" : false,
+    "windows_like": true,
+
+    "ppa_support": true,
+
+    "download_link" : "https://lubuntu.net/",
+    "linux_delta" : null,
+    "distro_test" : "https://distrotest.net/Lubuntu/",
+    "distro_watch" : "https://distrowatch.com/table.php?distribution=lubuntu",
+
+    "description" : "Ubuntu with a different face, Lubuntu is a familiar, stable, and <i>fast</i> distribution. Lubuntu is a very lean distribution and doesn't need much to get running, making it perfect for older hardware. But don't be fooled, Lubuntu is also ridiculously fast on newer hardware as well. If you come from Windows and want a lightening fast distro, be sure to give Lubuntu a shot."
+}

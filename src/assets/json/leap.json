@@ -1,10 +1,10 @@
 {
 	"name":"openSUSE Leap",
 	"based_on": "openSUSE",
+	"logo": "assets/icons/opensuse.png",
 	"package_manager": "Zypper, YaST",
-	"considered_upstream": false,
-	"actually_upstream": false,
 	"desktop_envs": "GNOME, KDE",
+	"screenshots_folder": "assets/img/opensuse/",
 
 	"mac_like": true,
 	"windows_like": true,

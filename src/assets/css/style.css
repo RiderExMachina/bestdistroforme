@@ -15,10 +15,14 @@ footer {
 	padding-left: 5%;
 }
 
+#return-to-start {
+	font-size: .9em;
+	margin-top: 5%;
+	margin-left: 5%;
+}
 #content {
 	font-size: 1.25em;
 	margin-left: 5%;
-	margin-top: 5%;
 	max-width: 75%;
 }
 #choices {
@@ -32,9 +36,12 @@ footer {
 	font-weight: 700;
 	font-size: 1.25em;
 }
-/*#next {
-	margin-right: 0;
-}*/
+
+#next {
+
+	margin-left: 20%;
+
+}
 /* Classes */
 .dl-link {
 	font-size: .8em;

@@ -1,16 +1,16 @@
 {
     "name" : "Xubuntu",
     "based_on" : "Ubuntu",
+    "logo": "assets/icons/xubuntu.svg",
     "package_manager" : "Apt",
-    "considered_upstream" : false,
-    "actually_upstream": false,
     "desktop_envs" : "XFCE",
-    
+    "screenshot_folder": "assets/img/ubuntu/xfce/",
+
     "mac_like" : true,
     "windows_like": true,
-    
+
     "ppa_support": true,
-    
+
     "download_link" : "https://xubuntu.org",
     "linux_delta" : null,
     "distro_test" : "https://distrotest.net/Xubuntu/",

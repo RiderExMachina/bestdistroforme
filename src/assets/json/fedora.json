@@ -1,10 +1,10 @@
 {
 	"name":"Fedora",
 	"based_on": "Fedora",
+	"logo": "assets/icons/fedora.svg",
 	"package_manager": "DNF",
-	"considered_upstream": true,
-	"actually_upstream": true,
 	"desktop_envs": "GNOME",
+	"screenshots_folder": "assets/img/fedora/",
 
 	"mac_like": true,
 	"windows_like": false,

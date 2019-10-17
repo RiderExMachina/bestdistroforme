@@ -1,8 +1,10 @@
 {
     "name" : "Ubuntu",
     "based_on" : "Debian",
+    "logo": "assets/icons/ubuntu.svg",
     "package_manager" : "Apt",
     "desktop_envs" : "Gnome",
+    "screenshot_folder": "assets/img/ubuntu/gnome/",
 
     "mac_like" : true,
     "windows_like": false,

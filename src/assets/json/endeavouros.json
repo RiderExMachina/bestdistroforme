@@ -1,8 +1,10 @@
 {
 	"name":"EndeavourOS",
 	"based_on": "Arch",
+	"logo": null,
 	"package_manager": "Pacman, Yay",
 	"desktop_envs": "XFCE",
+	"screenshots_folder": "assets/img/endeavouros/",
 
 	"mac_like": true,
 	"windows_like": true,

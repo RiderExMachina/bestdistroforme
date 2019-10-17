@@ -2,15 +2,15 @@
     "name" : "Kubuntu",
     "based_on" : "Debian",
     "package_manager": "Apt",
-    "considered_upstream" : true,
-    "actually_upstream": false,
+    "logo": "assets/icons/kubuntu.svg",
     "desktop_envs" : "KDE",
-    
+    "screenshots_folder": "assets/img/ubuntu/kde/",
+
     "mac_like" : false,
     "windows_like": true,
-    
+
     "ppa_support": true,
-    
+
     "download_link" : "https://kubuntu.org",
     "linux_delta" : "https://linuxdelta.com/distro/Kubuntu",
     "distro_test" : "https://distrotest.net/Kubuntu/",

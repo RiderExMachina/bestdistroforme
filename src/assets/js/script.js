@@ -14,6 +14,14 @@ var simple = false;
 var gamer = false;
 var distros = []
 
+url = document.URL
+if (url.includes("?")){
+    console.log("Manual distro detected")
+    url = url.split("?");
+    manual = url[1];
+    displayResults(manual);
+}
+
 function displayResults(distro) {
     base = distro;
     distro = distro.toLowerCase();
@@ -27,10 +35,20 @@ function displayResults(distro) {
         }
         catch (e){
             console.log("err: " + file + " isn't valid JSON.");
-            document.getElementById("content").innerHTML = "The system decided you should try " + base + " , but either can't load it, or doesn't seem to have an entry in its database. Please report the error <a href='https://github.com/RiderExMachina/bestdistroforme/issues'>on the Github page</a>, including the distro and what choices you made (if you can't remember, press F12, click on the \"Console\" tab, and then copy/screenshot everything in the window). Sorry for the inconvenience!";
+            document.getElementById("content").innerHTML = "The system decided you should try " + base + ", but is either unable to load it, or doesn't seem to have an entry in its database. Please report the error <a href='https://github.com/RiderExMachina/bestdistroforme/issues'>on the Github page</a>, including the distro and what choices you made (if you can't remember, press F12, click on the \"Console\" tab, and then copy/screenshot everything in the window). Sorry for the inconvenience!";
             return;
-        }  
-
+        } 
+        var image = "";
+        if (info.screenshot_folder != null) {
+            image = "<img src='"+ info.screenshot_folder + "desktop.png' alt='Image of the Desktop' style='width:192px;height:108px;'>";
+        }
+        if (image == undefined || image == "undefined"){
+            image = "";
+        }
+        var logo = "";
+        if (info.logo != null || info.logo != undefined) {
+            logo = "<img src='"+ info.logo +"' onerror='this.onerror=null; this.src=\'" + info.logo + ".png\'' style='height:50px;width:50px;'>";
+        } else
         // Recommended DEs BEGIN
         var recommendedDE = ""
         deCheck = info.desktop_envs
@@ -80,7 +98,7 @@ function displayResults(distro) {
                 recommendedDE = "<br/>Because you said you prefer the macOS desktop experience, we recommend installing the Latte Dock extension.<br/>";
             }
         }
-        if (info.name == "Ubuntu" || info.name == "Xubuntu" || info.name == "Ubuntu Budgie" || info.name == "Ubuntu MATE" || info.name == "Pop!_OS") {
+        if (info.name == "Ubuntu" || info.name == "Lubuntu" || info.name == "Xubuntu" || info.name == "Ubuntu Budgie" || info.name == "Ubuntu MATE" || info.name == "Pop!_OS") {
             if (stable) {
                 recommendedDE = "Because you said you wanted a more stable distribution, we recommend the LTS version."
             }
@@ -99,24 +117,23 @@ function displayResults(distro) {
                         <a href='`+ info.distro_test +`'>Try it out</a> |
                         <a href='` + info.distro_watch + `'>Distro Watch Page</a></span> <br /> <br />`
         }
-
+        console.log(info.logo)
         document.getElementById("content").innerHTML = `
-        <h3>We recommend <span id='recommended'>` + info.name + `</span></h3>
-        <br />
+        <h3>We recommend <span id='recommended'>` + info.name + logo + `</span></h3>
         <a href='` + info.download_link +`' class='dl-link'>Download it here</a>
         <br />
         <br />
         <b>Desktop Environments:</b>
         <br />
-        ` + info.desktop_envs + 
-        "<br /><span class='information'>" + recommendedDE + "</span>" +
+        ` + info.desktop_envs +
+        "<br /><span class='information'>" + recommendedDE + "</span>" + image +
         `
         <br/>
         <b>Information:</b>
         <br/>`
         + info.description + moreInfo +
-        `<a href="javascript:void(0)" onclick="decision('`+ base +`')">Click here</a> if you've tried this distro before and weren't a fan. |
-        If you want to see another option, <a href="javascript:void(0)" onclick="next('`+ base +`')">click here</a>.<br/>`;
+        `<span id="next"><a href="javascript:void(0)" onclick="decision('`+ base +`')">Click here</a> if you've tried this distro before and weren't a fan. |
+        If you want to see another option, <a href="javascript:void(0)" onclick="next('`+ base +`')">click here</a>.</span><br/>`;
 
        /* <section id="sidebar>
           `;
@@ -230,7 +247,6 @@ function newtoLinux(newness) {
 function softwareRelease(cycle) {
     if (cycle == "no-cares") {
         stable = true;
-        // TODO: Use this flag to recommend Ubuntu LTS
         console.log("Making sure my computer runs for a long time");
 
         stableDistros = ["Debian", "CentOS", "Leap"]
@@ -327,6 +343,26 @@ function customization(effort){
     `;
 
 }
+function computerAge(age) {
+    if (age == "brandnew"){
+        console.log("Any distro should be fine.")
+    }
+    if (age == "young"){
+        console.log("Most distros should be fine")
+    }
+    if (age == "old"){
+        console.log("Should be careful it's not 32-bit")
+        distros.push("Lubuntu");
+    }
+    document.getElementById("content").innerHTML = `
+        <h3>How much customization are you willing to do?</h3>
+            <section id="choices">
+                <button class="distro-show" onclick="javascript:customization('none')">As Little as Possible</button>
+                <button class="distro-show" onclick="javascript:customization('littlebit')">A Little is Fine</button>
+                <button class="distro-show" onclick="javascript:customization('arch-user')">Change All the Things</button>
+        </section>
+        `;
+}
 
 function compUse(usecase) {
     if (usecase == "browsing") {
@@ -347,15 +383,15 @@ function compUse(usecase) {
             }
         }
     }
-
     document.getElementById("content").innerHTML = `
-        <h3>How much customization are you willing to do?</h3>
+        <h3>How old is your PC?</h3>
             <section id="choices">
-                <button class="distro-show" onclick="javascript:customization('none')">As Little as Possible</button>
-                <button class="distro-show" onclick="javascript:customization('littlebit')">A Little is Fine</button>
-                <button class="distro-show" onclick="javascript:customization('arch-user')">Change All the Things</button>
+                <button class="distro-show" onclick="javascript:computerAge('brandnew')">Less than 5 years old</button>
+                <button class="distro-show" onclick="javascript:computerAge('young')">Less than 10 years old</button>
+                <button class="distro-show" onclick="javascript:computerAge('old')">Older than 10 years old</button>
         </section>
     `;
+
 }
 
 function desktopType(desktop) {
@@ -374,7 +410,7 @@ function desktopType(desktop) {
         macLike = true;
         console.log("I like macOS' desktop");
 
-        distros_like_mac = ["elementaryOS", "Pop!_OS", "Zorin", "Kubuntu", "Xubuntu", "Ubuntu Mate"]
+        distros_like_mac = ["elementaryOS", "Pop!_OS", "Zorin", "Ubuntu Budgie", "Kubuntu", "Xubuntu", "Ubuntu Mate"]
         for (i = 0; i< distros_like_mac.length; i++){
             if (!distros.includes(distros_like_mac[i])){
                 distros.push(distros_like_mac[i]);    
@@ -385,14 +421,29 @@ function desktopType(desktop) {
         console.log("I don't care, so long as it works")
     }
 
+    document.getElementById("return-to-start").innerHTML = "<a href='javascript:void('0')' onclick='quizStart()'>Start over</a>";
+
     document.getElementById("content").innerHTML = `
-        <h3>What do you use your computer for?</h3>
+        <h3>What is your usual computer workload?</h3>
             <section id="choices">
-                <button class="distro-show" onclick="javascript:compUse('browsing')">Browsing the Internet</button>
-                <button class="distro-show" onclick="javascript:compUse('editing')">Editing Photos or Videos</button>
-                <button class="distro-show" onclick="javascript:compUse('gaming')">Playing Video Games</button>
+                <button class="distro-show" onclick="javascript:compUse('browsing')">Light (e.g. Web browsing)</button>
+                <button class="distro-show" onclick="javascript:compUse('editing')">Medium (e.g. Programming)</button>
+                <button class="distro-show" onclick="javascript:compUse('gaming')">Heavy (e.g. Gaming)</button>
             </section>
     `;
+}
+
+function quizStart() {
+     document.getElementById("content").innerHTML = `
+     <H3>Pick which type of desktop you're most comfortable with.</H3>
+            <section id="choices">
+                <!-- <img id="windows-like" src="assets/img/windows-like.svg" /> -->
+                <button class="distro-show" onclick="javascript:desktopType('windows')">Windows-like</button>
+                <button class="distro-show" onclick="javascript:desktopType('mac')">Mac-like</button>
+                <button class="distro-show" onclick="javascript:desktopType('whatever')">Don't care</button>
+            </section>
+            <br /> <br /> <br />
+            Don't want to take the quiz? <a href="javascript:void(0)" onclick="javascript:autoChoice()">We can choose for you</a>`;
 }
 
 autoDistros = ["Kubuntu", "Pop!_OS", "elementaryOS", "Linux Mint", "Zorin"];
@@ -407,5 +458,4 @@ function autoChoice() {
     }
     console.log("Choose for me")
     displayResults(distro)
-
 };
