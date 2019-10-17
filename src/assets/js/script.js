@@ -38,9 +38,12 @@ function displayResults(distro) {
             document.getElementById("content").innerHTML = "The system decided you should try " + base + ", but is either unable to load it, or doesn't seem to have an entry in its database. Please report the error <a href='https://github.com/RiderExMachina/bestdistroforme/issues'>on the Github page</a>, including the distro and what choices you made (if you can't remember, press F12, click on the \"Console\" tab, and then copy/screenshot everything in the window). Sorry for the inconvenience!";
             return;
         } 
-        var image = "" 
+        var image = "";
         if (info.screenshot_folder != null) {
             image = "<img src='"+ info.screenshot_folder + "desktop.png' alt='Image of the Desktop' style='width:192px;height:108px;'>";
+        }
+        if (image == undefined || image == "undefined"){
+            image = "";
         }
         var logo = "";
         if (info.logo != null || info.logo != undefined) {
@@ -95,7 +98,7 @@ function displayResults(distro) {
                 recommendedDE = "<br/>Because you said you prefer the macOS desktop experience, we recommend installing the Latte Dock extension.<br/>";
             }
         }
-        if (info.name == "Ubuntu" || info.name == "Xubuntu" || info.name == "Ubuntu Budgie" || info.name == "Ubuntu MATE" || info.name == "Pop!_OS") {
+        if (info.name == "Ubuntu" || info.name == "Lubuntu" || info.name == "Xubuntu" || info.name == "Ubuntu Budgie" || info.name == "Ubuntu MATE" || info.name == "Pop!_OS") {
             if (stable) {
                 recommendedDE = "Because you said you wanted a more stable distribution, we recommend the LTS version."
             }
@@ -129,8 +132,8 @@ function displayResults(distro) {
         <b>Information:</b>
         <br/>`
         + info.description + moreInfo +
-        `<a href="javascript:void(0)" onclick="decision('`+ base +`')">Click here</a> if you've tried this distro before and weren't a fan. |
-        If you want to see another option, <a href="javascript:void(0)" onclick="next('`+ base +`')">click here</a>.<br/>`;
+        `<span id="next"><a href="javascript:void(0)" onclick="decision('`+ base +`')">Click here</a> if you've tried this distro before and weren't a fan. |
+        If you want to see another option, <a href="javascript:void(0)" onclick="next('`+ base +`')">click here</a>.</span><br/>`;
 
        /* <section id="sidebar>
           `;

@@ -36,9 +36,12 @@ footer {
 	font-weight: 700;
 	font-size: 1.25em;
 }
-/*#next {
-	margin-right: 0;
-}*/
+
+#next {
+
+	margin-left: 20%;
+
+}
 /* Classes */
 .dl-link {
 	font-size: .8em;
