@@ -332,6 +332,26 @@ function customization(effort){
     `;
 
 }
+function computerAge(age) {
+    if (age == "brandnew"){
+        console.log("Any distro should be fine.")
+    }
+    if (age == "young"){
+        console.log("Most distros should be fine")
+    }
+    if (age == "old"){
+        console.log("Should be careful it's not 32-bit")
+        distros.push("Lubuntu");
+    }
+    document.getElementById("content").innerHTML = `
+        <h3>How much customization are you willing to do?</h3>
+            <section id="choices">
+                <button class="distro-show" onclick="javascript:customization('none')">As Little as Possible</button>
+                <button class="distro-show" onclick="javascript:customization('littlebit')">A Little is Fine</button>
+                <button class="distro-show" onclick="javascript:customization('arch-user')">Change All the Things</button>
+        </section>
+        `;
+}
 
 function compUse(usecase) {
     if (usecase == "browsing") {
@@ -352,15 +372,15 @@ function compUse(usecase) {
             }
         }
     }
-
     document.getElementById("content").innerHTML = `
-        <h3>How much customization are you willing to do?</h3>
+        <h3>How old is your PC?</h3>
             <section id="choices">
-                <button class="distro-show" onclick="javascript:customization('none')">As Little as Possible</button>
-                <button class="distro-show" onclick="javascript:customization('littlebit')">A Little is Fine</button>
-                <button class="distro-show" onclick="javascript:customization('arch-user')">Change All the Things</button>
+                <button class="distro-show" onclick="javascript:computerAge('brandnew')">Less than 5 years old</button>
+                <button class="distro-show" onclick="javascript:computerAge('young')">Less than 10 years old</button>
+                <button class="distro-show" onclick="javascript:computerAge('old')">Older than 10 years old</button>
         </section>
     `;
+
 }
 
 function desktopType(desktop) {
@@ -393,11 +413,11 @@ function desktopType(desktop) {
     document.getElementById("return-to-start").innerHTML = "<a href='javascript:void('0')' onclick='quizStart()'>Start over</a>";
 
     document.getElementById("content").innerHTML = `
-        <h3>What do you use your computer for?</h3>
+        <h3>What is your usual computer workload?</h3>
             <section id="choices">
-                <button class="distro-show" onclick="javascript:compUse('browsing')">Browsing the Internet</button>
-                <button class="distro-show" onclick="javascript:compUse('editing')">Editing Photos or Videos</button>
-                <button class="distro-show" onclick="javascript:compUse('gaming')">Playing Video Games</button>
+                <button class="distro-show" onclick="javascript:compUse('browsing')">Light - e.g. Browsing the web</button>
+                <button class="distro-show" onclick="javascript:compUse('editing')">Medium - e.g. Programming, Photo Editing</button>
+                <button class="distro-show" onclick="javascript:compUse('gaming')">Heavy - e.g. Gaming, 3D Modeling</button>
             </section>
     `;
 }
