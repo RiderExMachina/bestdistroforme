@@ -12,7 +12,7 @@
 	"download_link": "https://software.opensuse.org/distributions/tumbleweed",
 	"linux_delta": "https://linuxdelta.com/distro/openSuse",
 	"distro_test": "https://distrotest.net/openSUSE",
-	"about_distro": "https://distrowatch.com/table.php?distribution=opensuse",
+	"about_distro": "https://www.opensuse.org/#Tumbleweed",
 
 	"description": "<i>Any user who wished to have the newest packages will want Tumbleweed. Tumbleweed appeals to Power Users, Software Developers, and Gamers. If you require the latest software stacks or need a stable platform closest to bleeding edge Linux, Tumbleweed is the choice for you.</i> <br/>- Tumbleweed Info Blurb "
 }

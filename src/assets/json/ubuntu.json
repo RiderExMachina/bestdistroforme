@@ -14,7 +14,7 @@
     "download_link" : "https://ubuntu.com",
     "linux_delta" : "https://linuxdelta.com/distro/Ubuntu",
     "distro_test" : "https://distrotest.net/Ubuntu/",
-    "about_distro" : "https://distrowatch.com/table.php?distribution=ubuntu",
+    "about_distro" : "https://ubuntu.com/about",
 
     "description" : "Backed by Canonical, Ubuntu is one of the more popular distributions. There are two versions, a standard release every six months and a Long Term Support (LTS) release every two years. The LTS releases get updates for 10 years, whereas the standard releases stop getting updates after six months. If you are not willing to upgrade every six months, the LTS release may be the way to go."
 }
