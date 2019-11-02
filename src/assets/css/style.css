@@ -8,7 +8,12 @@ footer {
 	text-align: center;
 	font-style: italic;
 }
-
+code {
+	font-size: .8em;
+	font-family: "Fira Code Mono", "Hack Mono", "Droid Mono", monospace
+	background-color: lightgrey;
+	line-height: 1.05em;
+}
 /* IDs */
 #header-subscript {
 	font-style: italic;
