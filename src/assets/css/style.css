@@ -9,9 +9,9 @@ footer {
 	font-style: italic;
 }
 code {
-	font-size: .8em;
-	font-family: "Fira Code Mono", "Hack Mono", "Droid Mono", monospace
-	background-color: lightgrey;
+	font-size: 1em;
+	font-family: "Fira Code Mono", "Hack Mono", "Droid Mono", monospace;
+	background: lightgrey;
 	line-height: 1.05em;
 }
 /* IDs */
