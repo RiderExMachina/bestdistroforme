@@ -35,7 +35,7 @@ function displayResults(distro) {
         }
         catch (e){
             console.log("err: " + file + " isn't valid JSON.");
-            document.getElementById("content").innerHTML = "The system decided you should try " + base + ", but is either unable to load it, or doesn't seem to have an entry in its database. Please report the error <a href='https://github.com/RiderExMachina/bestdistroforme/issues'>on the Github page</a>, including the distro and what choices you made (if you can't remember, press F12, click on the \"Console\" tab, and then copy/screenshot everything in the window). Sorry for the inconvenience!";
+            document.getElementById("content").innerHTML = "Based on what you've told us, we think you should use " + base + ", but we're unfortunately either unable to load the information about it, or we don't seem to have an entry in our database. Please report the error <a href='https://github.com/RiderExMachina/bestdistroforme/issues'>on the Github page</a>, including the distro and what choices you made (if you can't remember, press F12, click on the \"Console\" tab, and then copy/screenshot everything in the window). Sorry for the inconvenience!";
             return;
         } 
         var image = "";
@@ -106,13 +106,13 @@ function displayResults(distro) {
         if (info.linux_delta == null){
             moreInfo = `<br /><br /><span id='more-info'>
                         <a href='`+ info.distro_test +`'>Try it out</a> |
-                        <a href='` + info.distro_watch + `'>Distro Watch Page</a></span> <br /> <br />`
+                        <a href='` + info.about_distro + `'>About this distro</a></span> <br /> <br />`
         }
         else {
             moreInfo = `<br /><br /><span id='more-info'>
                         <a href='`+ info.linux_delta +`'>Linux Delta Rating</a> |
                         <a href='`+ info.distro_test +`'>Try it out</a> |
-                        <a href='` + info.distro_watch + `'>Distro Watch Page</a></span> <br /> <br />`
+                        <a href='` + info.about_distro + `'>About this distro</a></span> <br /> <br />`
         }
         console.log(info.logo)
         document.getElementById("content").innerHTML = `
