@@ -12,7 +12,7 @@
 	"download_link": "https://manjaro.org/download/",
 	"linux_delta": "https://linuxdelta.com/distro/Manjaro",
 	"distro_test": "https://distrotest.net/Manjaro",
-	"distro_watch": "https://distrowatch.com/table.php?distribution=manjaro",
+	"about_distro": "https://distrowatch.com/table.php?distribution=manjaro",
 
 	"description": "Fast and beautiful, Manjaro is considered the \"more stable\" version of Arch Linux. It toes the line between bleeding edge and cutting edge, allowing you to have a stable system while also being up-to-date. Be warned though, you will occasionally need to know your way around the terminal in case a package has major changes."
 }

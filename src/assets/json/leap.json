@@ -12,7 +12,7 @@
 	"download_link": "https://software.opensuse.org/distributions/leap",
 	"linux_delta": "https://linuxdelta.com/distro/openSuse",
 	"distro_test": "https://distrotest.net/openSUSE",
-	"distro_watch": "https://distrowatch.com/table.php?distribution=opensuse",
+	"about_distro": "https://distrowatch.com/table.php?distribution=opensuse",
 
 	"description": "<i>New and experienced Linux users get the most usable Linux distribution and stabilized operating system with openSUSE's regular release. Receive updates and secure your OS with openSUSE's latest distribution. Pick your desktop, configure your system, and enjoy the platform of choice for developers, administrators, sofware vendors, and people who want their computer to just work.</i> <br/>- Leap Info Blurb"
 }

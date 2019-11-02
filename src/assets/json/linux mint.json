@@ -13,7 +13,7 @@
     "download_link" : "https://linuxmint.com",
     "linux_delta" : "https://linuxdelta.com/distro/Linux%20Mint",
     "distro_test" : "https://distrotest.net/Linux%20Mint",
-    "distro_watch" : "https://distrowatch.com/table.php?distribution=mint",
+    "about_distro" : "https://distrowatch.com/table.php?distribution=mint",
 
     "description" : "Based on Ubuntu LTS, Linux Mint is a familiar and stable distribution. It is the original home of the Cinnamon desktop environment. There are multiple versions, but we recommend the default Cinnamon version from the website. If you come from Windows, be sure to give Linux Mint a shot."
 }
