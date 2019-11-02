@@ -12,7 +12,7 @@
 	"download_link": "https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/10.1.0-live+nonfree/amd64/iso-hybrid/",
 	"linux_delta": "https://linuxdelta.com/distro/Debian",
 	"distro_test": "https://distrotest.net/Debian",
-	"distro_watch": "https://distrowatch.com/table.php?distribution=debian",
+	"about_distro": "https://distrowatch.com/table.php?distribution=debian",
 
 	"description": "Debian is one of the oldest distros that are still going strong today. It is fast, slim, and to the point."
 }

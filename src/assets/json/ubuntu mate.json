@@ -12,7 +12,7 @@
 	"download_link": "https://ubuntu-mate.org/download/",
 	"linux_delta": "https://linuxdelta.com/distro/Ubuntu%20MATE",
 	"distro_test": "https://distrotest.net/Ubuntu%20Mate",
-	"distro_watch": "https://distrowatch.com/table.php?distribution=ubuntumate",
+	"about_distro": "https://distrowatch.com/table.php?distribution=ubuntumate",
 
 	"description": "Ubuntu MATE is a stable, easy-to-use operating system with a configurable desktop environment. It is ideal for users who want the most out of their computers and prefer a traditional desktop experience. With modest hardware requirements it is suitable for any supported PC."
 }

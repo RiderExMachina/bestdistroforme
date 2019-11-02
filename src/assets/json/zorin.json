@@ -14,7 +14,7 @@
     "download_link" : "https://zorinos.com/download/",
     "linux_delta" : null,
     "distro_test" : "https://distrotest.net/Zorin%20OS",
-    "distro_watch" : "https://distrowatch.com/table.php?distribution=zorin",
+    "about_distro" : "https://distrowatch.com/table.php?distribution=zorin",
 
     "description" : "Based on Ubuntu, ZorinOS is a complete package in one distribution. There are four different editions: Ultimate, Core, Lite, and Education. The Ultimate version is $40, but it's packed full of programs and features that you may not find on your own. If you come from macOS, the Ultimate edition is the only version with the option for a macOS-like layout. The other versions are free, but lack some of the same features. If you're brand new to Linux and want the smoothest transition possible, Zorin OS Ultimate is well worth the price."
 }

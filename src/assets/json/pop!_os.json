@@ -15,7 +15,7 @@
     "download_link" : "https://system76.com/pop",
     "linux_delta" : "https://linuxdelta.com/distro/Pop!_OS",
     "distro_test" : "https://distrotest.net/Pop!_OS",
-    "distro_watch" : "https://distrowatch.com/table.php?distribution=popos",
+    "about_distro" : "https://distrowatch.com/table.php?distribution=popos",
 
     "description" : "Even though Pop!_OS is based on Ubuntu, it looks and feels like its own thing. Backed by hardware manufacturer System76, this distro is everything you could want from Linux. Great looking visuals, snappy animations, and the best Gnome addons already installed by default, few other distros look or feel as well put together as Pop!_OS. If you want to just sit down and get work done, Pop!_OS may be the distro for you."
 }
