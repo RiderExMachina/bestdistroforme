@@ -104,6 +104,9 @@ function displayResults(distro) {
             }
             recommendedDE = ""
         }
+        if (recommendedDE == undefined){
+            recommendedDE = ""
+        }
         // RecommendedDEs END
         // Linux Delta
         if (info.linux_delta == null){
