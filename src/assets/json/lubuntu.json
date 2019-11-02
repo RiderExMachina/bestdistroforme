@@ -14,7 +14,7 @@
     "download_link" : "https://lubuntu.net/",
     "linux_delta" : null,
     "distro_test" : "https://distrotest.net/Lubuntu/",
-    "about_distro" : "https://distrowatch.com/table.php?distribution=lubuntu",
+    "about_distro" : "https://lubuntu.net/about/",
 
     "description" : "Ubuntu with a different face, Lubuntu is a familiar, stable, and <i>fast</i> distribution. Lubuntu is a very lean distribution and doesn't need much to get running, making it perfect for older hardware. But don't be fooled, Lubuntu is also ridiculously fast on newer hardware as well. If you come from Windows and want a lightening fast distro, be sure to give Lubuntu a shot."
 }

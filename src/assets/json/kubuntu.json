@@ -14,7 +14,7 @@
     "download_link" : "https://kubuntu.org",
     "linux_delta" : "https://linuxdelta.com/distro/Kubuntu",
     "distro_test" : "https://distrotest.net/Kubuntu/",
-    "about_distro" : "https://distrowatch.com/table.php?distribution=kubuntu",
+    "about_distro" : "https://kubuntu.org/about-us",
 
     "description" : "Ubuntu with a different face, Kubuntu is a familiar and stable distribution. It is one of the best implementation of the KDE desktop environment. If you come from Windows, be sure to give Kubuntu a shot."
 }

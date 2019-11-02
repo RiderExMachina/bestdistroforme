@@ -12,7 +12,7 @@
 	"download_link": "https://endeavouros.com/download/",
 	"linux_delta": null,
 	"distro_test": "https://distrotest.net/EndeavourOS",
-	"about_distro": "https://distrowatch.com/table.php?distribution=endeavour",
+	"about_distro": "https://endeavouros.com/",
 
 	"description": "Picking up the reigns when the Antergos project ended, EndeavourOS seeks to be Vanilla Arch Linux but easy to install and pre-configured with all you need to get started using your PC."
 }

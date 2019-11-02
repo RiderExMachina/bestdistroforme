@@ -12,7 +12,7 @@
 	"download_link": "https://getsol.us/download/",
 	"linux_delta": "https://linuxdelta.com/distro/Solus",
 	"distro_test": "https://distrotest.net/Solus",
-	"about_distro": "https://distrowatch.com/table.php?distribution=solus",
+	"about_distro": "https://getsol.us/solus/about/",
 
 	"description": "Solus aims to provide the best experience for any kind of use. It includes tools and programs so regardless of if you're just a regular user, a developer, a content creator, or a gamer, you should be able to get to work (or play) as soon as you install the distro."
 }

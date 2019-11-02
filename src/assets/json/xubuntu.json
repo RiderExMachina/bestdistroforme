@@ -14,7 +14,7 @@
     "download_link" : "https://xubuntu.org",
     "linux_delta" : null,
     "distro_test" : "https://distrotest.net/Xubuntu/",
-    "about_distro" : "https://distrowatch.com/table.php?distribution=xubuntu",
+    "about_distro" : "https://xubuntu.org/about",
 
     "description" : "Ubuntu with a different face, Xubuntu can be a familiar and stable distribution. Its desktop environment XFCE is very stable and customizable. If you want up to date packages but a rock solid experience, be sure to try Xubuntu out."
 }
