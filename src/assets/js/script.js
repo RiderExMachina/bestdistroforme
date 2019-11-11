@@ -44,7 +44,7 @@ function displayResults(distro) {
         }
         var logo = "";
         if (info.logo != null || info.logo != undefined) {
-            logo = "<img src='"+ info.logo +"' onerror='this.onerror=null; this.src=\'" + info.logo + ".png\'' style='height:50px;width:50px;'>";
+            logo = " <img src='"+ info.logo +"' onerror='this.onerror=null; this.src=\'" + info.logo + ".png\'' title='Icon for "+ base +"'style='height:50px;width:50px;'>";
         } else
         // Recommended DEs BEGIN
         var recommendedDE = ""
