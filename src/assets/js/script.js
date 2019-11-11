@@ -302,7 +302,7 @@ function customization(effort){
         niceOOTB = true;
         console.log("Gotta look nice");
 
-        prettyDistros = ["elementaryOS", "Pop!_OS", "Zorin", "Kubuntu", "Ubuntu Mate", "Tumbleweed", "Manjaro", "EndeavourOS"]
+        prettyDistros = ["elementaryOS", "Pop!_OS", "Zorin", "Kubuntu", "Ubuntu Mate", "Tumbleweed", "Manjaro", "EndeavourOS", "Peppermint"]
         for (i = 0; i< prettyDistros.length; i++){
             if (!distros.includes(prettyDistros[i])){
                 distros.push(prettyDistros[i]);    
@@ -350,6 +350,12 @@ function computerAge(age) {
     }
     if (age == "old"){
         console.log("Should be careful it's not 32-bit")
+            oldPCFriendly = ["Xubuntu", "Lubuntu", "Peppermint"]
+            for (i = 0; i< oldPCFriendly.length; i++){
+                if (!distros.includes(oldPCFriendly[i])){
+                    distros.push(oldPCFriendly[i]);    
+                }
+            }
         distros.push("Lubuntu");
     }
     document.getElementById("content").innerHTML = `
