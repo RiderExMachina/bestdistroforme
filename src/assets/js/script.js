@@ -39,11 +39,8 @@ function displayResults(distro) {
             return;
         } 
         var image = "";
-        if (info.screenshot_folder != null) {
-            image = "<img src='"+ info.screenshot_folder + "desktop.png' alt='Image of the Desktop' style='width:192px;height:108px;'>";
-        }
-        if (image == undefined || image == "undefined"){
-            image = "";
+        if (info.screenshots_folder != null) {
+            image = "<img src='"+ info.screenshots_folder + "desktop.png' title='Image of the Desktop' style='width:384px;height:216px;'>";
         }
         var logo = "";
         if (info.logo != null || info.logo != undefined) {
@@ -293,6 +290,8 @@ function softwareRelease(cycle) {
 
     document.getElementById("content").innerHTML = `
         <h3>How familiar are you with Linux?</h3>
+            <a href="javascript:void(0)" onclick="explanationText('newness')" class="information">Why am I being asked this?</a>
+            <p id="why" class="information"> </p>
             <section id="choices">
                 <button class="distro-show" onclick="javascript:newtoLinux('baby')">Never used it before</button>
                 <button class="distro-show" onclick="javascript:newtoLinux('arch-user')">I've used it a bit</button>
@@ -306,7 +305,7 @@ function customization(effort){
         niceOOTB = true;
         console.log("Gotta look nice");
 
-        prettyDistros = ["elementaryOS", "Pop!_OS", "Zorin", "Kubuntu", "Ubuntu Mate", "Tumbleweed", "Manjaro", "EndeavourOS"]
+        prettyDistros = ["elementaryOS", "Pop!_OS", "Zorin", "Kubuntu", "Ubuntu Mate", "Tumbleweed", "Manjaro", "EndeavourOS", "Peppermint"]
         for (i = 0; i< prettyDistros.length; i++){
             if (!distros.includes(prettyDistros[i])){
                 distros.push(prettyDistros[i]);    
@@ -338,27 +337,34 @@ function customization(effort){
     }
     document.getElementById("content").innerHTML = `
         <h3>How quickly do you want new software?</h3>
+            <a href="javascript:void(0)" onclick="explanationText('content')" class="information">Why am I being asked this?</a>
+            <p id="why" class="information"> </p>
             <section id="choices">
-                <button class="distro-show" onclick="javascript:softwareRelease('no-cares')">When it's stable</button>
-                <button class="distro-show" onclick="javascript:softwareRelease('kinda-quickly')">Once it's been tested</button>
-                <button class="distro-show" onclick="javascript:softwareRelease('arch-user')">As soon as it's released</button>
+                <button class="distro-show" onclick="javascript:softwareRelease('no-cares')">When it's Stable</button>
+                <button class="distro-show" onclick="javascript:softwareRelease('kinda-quickly')">Once it's Been Tested</button>
+                <button class="distro-show" onclick="javascript:softwareRelease('arch-user')">As Soon as it's Released</button>
         </section>
     `;
 
 }
 function computerAge(age) {
-    if (age == "brandnew"){
-        console.log("Any distro should be fine.")
-    }
     if (age == "young"){
         console.log("Most distros should be fine")
     }
     if (age == "old"){
         console.log("Should be careful it's not 32-bit")
+            oldPCFriendly = ["Xubuntu", "Lubuntu", "Peppermint"]
+            for (i = 0; i< oldPCFriendly.length; i++){
+                if (!distros.includes(oldPCFriendly[i])){
+                    distros.push(oldPCFriendly[i]);    
+                }
+            }
         distros.push("Lubuntu");
     }
     document.getElementById("content").innerHTML = `
         <h3>How much customization are you willing to do?</h3>
+            <a href="javascript:void(0)" onclick="explanationText('customization')" class="information">Why am I being asked this?</a>
+            <p id="why" class="information"> </p>
             <section id="choices">
                 <button class="distro-show" onclick="javascript:customization('none')">As Little as Possible</button>
                 <button class="distro-show" onclick="javascript:customization('littlebit')">A Little is Fine</button>
@@ -388,8 +394,9 @@ function compUse(usecase) {
     }
     document.getElementById("content").innerHTML = `
         <h3>How old is your PC?</h3>
+            <a href="javascript:void(0)" onclick="explanationText('age')" class="information">Why am I being asked this?</a>
+            <p id="why" class="information"> </p>
             <section id="choices">
-                <button class="distro-show" onclick="javascript:computerAge('brandnew')">Less than 5 years old</button>
                 <button class="distro-show" onclick="javascript:computerAge('young')">Less than 10 years old</button>
                 <button class="distro-show" onclick="javascript:computerAge('old')">Older than 10 years old</button>
         </section>
@@ -428,6 +435,8 @@ function desktopType(desktop) {
 
     document.getElementById("content").innerHTML = `
         <h3>What is your usual computer workload?</h3>
+            <a href="javascript:void(0)" onclick="explanationText('usage')" class="information">Why am I being asked this?</a>
+            <p id="why" class="information"> </p>
             <section id="choices">
                 <button class="distro-show" onclick="javascript:compUse('browsing')">Light (e.g. Web browsing)</button>
                 <button class="distro-show" onclick="javascript:compUse('editing')">Medium (e.g. Programming)</button>
@@ -439,6 +448,8 @@ function desktopType(desktop) {
 function quizStart() {
      document.getElementById("content").innerHTML = `
      <H3>Pick which type of desktop you're most comfortable with.</H3>
+            <a href="javascript:void(0)" onclick="explanationText('desktop')" class="information">Why am I being asked this?</a>
+            <p id="why" class="information"> </p>
             <section id="choices">
                 <!-- <img id="windows-like" src="assets/img/windows-like.svg" /> -->
                 <button class="distro-show" onclick="javascript:desktopType('windows')">Windows-like</button>
@@ -446,7 +457,30 @@ function quizStart() {
                 <button class="distro-show" onclick="javascript:desktopType('whatever')">Don't care</button>
             </section>
             <br /> <br /> <br />
-            Don't want to take the quiz? <a href="javascript:void(0)" onclick="javascript:autoChoice()">We can choose for you</a>`;
+            Don't want to take the quiz? <a href="javascript:void(0)" onclick="autoChoice()">We can choose for you</a>`;
+}
+
+function explanationText(location) {
+    console.log("User wanted to know why they were asked about " + location);
+    var explanation = document.getElementById("why")
+    if (location == "desktop"){
+        explanation.innerHTML = "We want to know what kind of desktop experience you are most comfortable with, as this will help decide on the <a href='https://simple.wikipedia.org/wiki/Desktop_environment' target='_blank'>Desktop Environment</a> we recommend. If you have no preference, click the \"Don't care\" button.";
+    }
+    if (location == "usage") {
+        explanation.innerHTML = 'We want to know what kind of user you are. If you only browse the web using Google Chrome or Mozilla Firefox, click "Light". If you do <b>not</b> have a graphics card but do more than just browse the web, click "Medium". If you have a graphics card, click "Heavy".';
+    }
+    if (location == "age"){
+        explanation.innerHTML = 'We want to know if your computer will be fast enough for most distros. If it\'s older than 10 years old it can sometimes lead to a bad experience, which is something we want to avoid.';
+    }
+    if (location == "customization") {
+        explanation.innerHTML = 'Some very good performing distros do not look pretty. We want to know if you are willing to put a little bit of time in for customization. If you would like a good-looking distro out of the box, choose "As Little as Possible".';
+    }
+    if (location == "content") {
+        explanation.innerHTML = 'Each distro pushes out updates at different rates and can be more stable than other distros. Distros that push out faster updates can be less stable than distros that push out only stable updates. Click "Once it\'s been tested" for a happy medium.';
+    }
+    if (location == "newness") {
+        explanation.innerHTML = 'Some distros are better than others for people who have never used Linux before. This will help us recommend a distro that will be close to your level of Linux knowlege.';
+    }
 }
 
 autoDistros = ["Kubuntu", "Pop!_OS", "elementaryOS", "Linux Mint", "Zorin"];

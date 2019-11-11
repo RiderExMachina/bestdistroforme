@@ -1,0 +1,17 @@
+{
+	"name": "Peppermint OS",
+	"based_on": "Ubuntu",
+	"logo": "assets/icons/peppermint.png",
+	"desktop_envs": "LXDE/XFCE Hybrid",
+	"screenshots_folder": "assets/img/peppermint/",
+
+	"mac_like": false,
+	"windows_like": true,
+
+	"download_link": "https://peppermintos.com/guide/downloading/",
+	"linux_delta": null,
+	"distro_test": "https://distrotest.net/PeppermintOS",
+	"about_distro": "https://peppermintos.com/about/",
+
+	"description": "Peppermint is a lightweight distro that answers the question \"Why can't we have a low-resource distro that also looks nice?\" Based on the Ubuntu Long Term Support release (LTS), this distro has everything: the ocean of software Ubuntu has, a familiar and snappy interface, and two whole software centers."
+}

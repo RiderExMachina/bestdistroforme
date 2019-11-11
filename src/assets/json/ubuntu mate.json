@@ -4,7 +4,7 @@
 	"logo": "assets/icons/ubuntu mate.svg",
 	"package_manager": "Apt",
 	"desktop_envs": "Mate",
-	"screenshot_folder": "assets/img/ubuntu/mate/",
+	"screenshots_folder": "assets/img/ubuntu/mate/",
 
 	"mac_like": true,
 	"windows_like": true,
