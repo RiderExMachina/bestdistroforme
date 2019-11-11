@@ -1,7 +1,7 @@
 {
 	"name": "Peppermint OS",
 	"based_on": "Ubuntu",
-	"logo": null,
+	"logo": "assets/icons/peppermint.png",
 	"desktop_envs": "LXDE/XFCE Hybrid",
 	"screenshots_folder": "assets/img/peppermint/",
 
