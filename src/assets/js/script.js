@@ -470,7 +470,7 @@ function explanationText(location) {
         explanation.innerHTML = 'We want to know if your computer will be fast enough for most distros. If it\'s older than 10 years old it can sometimes lead to a bad experience, which is something we want to avoid.';
     }
     if (location == "customization") {
-        explanation.innerHTML = 'Some very good performing distros do not look pretty. We want to know if you are willing to put a little bit of time in for customization. If you would like a good-looking distro out of the box, choose "As Little as Possible".';
+        explanation.innerHTML = 'Some very good performing distros do not look pretty out of the box. We want to know if you are willing to put a little bit of time in for customization. If you would like a good-looking distro out of the box, choose "As Little as Possible".';
     }
     if (location == "content") {
         explanation.innerHTML = 'Each distro pushes out updates at different rates and can be more stable than other distros. Distros that push out faster updates can be less stable than distros that push out only stable updates. Click "Once it\'s been tested" for a happy medium.';
