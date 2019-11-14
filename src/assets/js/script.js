@@ -442,21 +442,70 @@ function desktopType(desktop) {
     `;
 }
 
-function quizStart() {
-     document.getElementById("content").innerHTML = `
-     <H3>Pick which type of desktop you're most comfortable with.</H3>
-            <a href="javascript:void(0)" onclick="explanationText('desktop')" class="information">Why am I being asked this?</a>
+function quiz(){
+    questions = ["desktop", "usage", "age", "customization", "updates", "newness"]
+    info = {
+        "desktop" : [
+                    "Pick which type of desktop you're most comfortable with.", 
+                    "Windows-like",
+                    "Mac-like",
+                    "Don't care"
+                    ],
+        "usage" : [
+                    "What is your usual computer workload?",
+                    "Light (e.g. Web browsing)",
+                    "Medium (e.g. Programming)",
+                    "Heavy (e.g. Gaming)"
+                  ],
+        "age"  : [
+                    "How old is your PC?",
+                    "Less than 5 years old",
+                    "Between 5 and 10 years old",
+                    "Older than 10 years old"
+                    ], 
+        "customization" : [
+                    "How much customization are you willing to do?",
+                    "As little as possible",
+                    "A little is fine",
+                    "I want total control"
+                    ],
+        "updates" : [
+                    "How quickly do you want new software?",
+                    "When it's stable",
+                    "After it's been tested",
+                    "As soon as it's released"
+                    ],
+        "newness" : [
+                    "How familiar are you with Linux?",
+                    "Never used it before",
+                    "I've dabbled with it",
+                    "I've used it a lot"
+                    ]
+    }
+    i = 0
+        question = info[questions[i]];
+        text = question[0];
+        helptext = questions[i]
+        button_1 = question[1];
+        button_2 = question[2];
+        button_3 = question[3];
+
+       document.getElementById("content").innerHTML =  `
+         <H3>`+ text +`</H3>
+            <a href="javascript:void(0)" onclick="explanationText('`+ helptext +`')" class="information">Why am I being asked this?</a>
             <p id="why" class="information"> </p>
             <section id="choices">
                 <!-- <img id="windows-like" src="assets/img/windows-like.svg" /> -->
-                <button class="distro-show" onclick="javascript:desktopType('windows')">Windows-like</button>
-                <button class="distro-show" onclick="javascript:desktopType('mac')">Mac-like</button>
-                <button class="distro-show" onclick="javascript:desktopType('whatever')">Don't care</button>
+                <button class="distro-show" onclick="javascript:button1()">`+ button_1+`</button>
+                <button class="distro-show" onclick="javascript:button2()">`+ button_2 +`</button>
+                <button class="distro-show" onclick="javascript:button3()">`+ button_3 +`</button>
             </section>
-            <br /> <br /> <br />
-            Don't want to take the quiz? <a href="javascript:void(0)" onclick="autoChoice()">We can choose for you</a>`;
+            <br /> <p id="extra"> <p>`;
+        
+        if (i = 0) {
+            document.getElementById("extra").innerHTML = "Don't want to take the quiz? <a href='javascript:void(0)' onclick='autoChoice()'>We can choose for you</a>";
+        }
 }
-
 function explanationText(location) {
     console.log("User wanted to know why they were asked about " + location);
     var explanation = document.getElementById("why")
@@ -472,7 +521,7 @@ function explanationText(location) {
     if (location == "customization") {
         explanation.innerHTML = 'Some very good performing distros do not look pretty out of the box. We want to know if you are willing to put a little bit of time in for customization. If you would like a good-looking distro out of the box, choose "As Little as Possible".';
     }
-    if (location == "content") {
+    if (location == "updates") {
         explanation.innerHTML = 'Each distro pushes out updates at different rates and can be more stable than other distros. Distros that push out faster updates can be less stable than distros that push out only stable updates. Click "Once it\'s been tested" for a happy medium.';
     }
     if (location == "newness") {
