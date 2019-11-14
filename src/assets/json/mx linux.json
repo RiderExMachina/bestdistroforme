@@ -2,9 +2,9 @@
 	"name":"MX Linux",
 	"based_on": "Debian",
 	"package_manager": "Apt",
-	"logo": "assets/img/icons/mx linux.svg",
+	"logo": "assets/icons/mx linux.svg",
 	"desktop_envs": "XFCE",
-	"screenshots_folder": "assets/icons/mx linux/",
+	"screenshots_folder": "assets/img/mx linux/",
 
 	"mac_like": true,
 	"windows_like": true,
