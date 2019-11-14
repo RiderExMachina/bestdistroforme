@@ -41,11 +41,12 @@ function displayResults(distro) {
         var image = "";
         if (info.screenshots_folder != null) {
             image = "<img src='"+ info.screenshots_folder + "desktop.png' title='Image of the Desktop' style='width:384px;height:216px;'>";
+            if (image.status == 404) { image = "" }
         }
         var logo = "";
         if (info.logo != null || info.logo != undefined) {
-            logo = "<img src='"+ info.logo +"' onerror='this.onerror=null; this.src=\'" + info.logo + ".png\'' style='height:50px;width:50px;'>";
-        } else
+            logo = ` <img src='`+ info.logo +`' onerror="this.onerror=null; this.src='` + info.logo + `.png'" style='height:50px;width:50px;'>`;
+        }
         // Recommended DEs BEGIN
         var recommendedDE = ""
         deCheck = info.desktop_envs
@@ -101,7 +102,10 @@ function displayResults(distro) {
             }
             recommendedDE = ""
         }
+
+        if (recommendedDE == undefined){ recommendedDE = "" }
         // RecommendedDEs END
+        
         // Linux Delta
         if (info.linux_delta == null){
             moreInfo = `<br /><br /><span id='more-info'>
@@ -115,6 +119,7 @@ function displayResults(distro) {
                         <a href='` + info.about_distro + `'>About this distro</a></span> <br /> <br />`
         }
         console.log(info.logo)
+
         document.getElementById("content").innerHTML = `
         <h3>We recommend <span id='recommended'>` + info.name + logo + `</span></h3>
         <a href='` + info.download_link +`' class='dl-link'>Download it here</a>
@@ -246,7 +251,7 @@ function softwareRelease(cycle) {
         stable = true;
         console.log("Making sure my computer runs for a long time");
 
-        stableDistros = ["Debian", "CentOS", "Leap"]
+        stableDistros = ["Debian", "CentOS", "Leap", "MX Linux"]
         for (i = 0; i< stableDistros.length; i++){
             if (!distros.includes(stableDistros[i])){
                 distros.push(stableDistros[i]);    
@@ -302,7 +307,7 @@ function customization(effort){
         niceOOTB = true;
         console.log("Gotta look nice");
 
-        prettyDistros = ["elementaryOS", "Pop!_OS", "Zorin", "Kubuntu", "Ubuntu Mate", "Tumbleweed", "Manjaro", "EndeavourOS", "Peppermint"]
+        prettyDistros = ["elementaryOS", "Pop!_OS", "Zorin", "Kubuntu", "Ubuntu Mate", "Tumbleweed", "Manjaro", "EndeavourOS", "Peppermint", "MX Linux"]
         for (i = 0; i< prettyDistros.length; i++){
             if (!distros.includes(prettyDistros[i])){
                 distros.push(prettyDistros[i]);    
@@ -312,7 +317,7 @@ function customization(effort){
     else if (effort == "littlebit") {
         console.log("Likes to dabble");
         
-        needTLCDistros = ["Xubuntu", "Ubuntu MATE"]
+        needTLCDistros = ["Xubuntu", "Ubuntu MATE", "MX Linux"]
         for (i = 0; i< needTLCDistros.length; i++){
             if (!distros.includes(needTLCDistros[i])){
                 distros.push(needTLCDistros[i]);    
@@ -350,7 +355,7 @@ function computerAge(age) {
     }
     if (age == "old"){
         console.log("Should be careful it's not 32-bit")
-            oldPCFriendly = ["Xubuntu", "Lubuntu", "Peppermint"]
+            oldPCFriendly = ["Xubuntu", "Lubuntu", "Peppermint", "MX Linux"]
             for (i = 0; i< oldPCFriendly.length; i++){
                 if (!distros.includes(oldPCFriendly[i])){
                     distros.push(oldPCFriendly[i]);    
