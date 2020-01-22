@@ -225,70 +225,66 @@ function decision(toPop="") {
 }
 
 function newtoLinux(newness) {
-    if (newness == "baby") {
-        newHere = true;
-        console.log("Brand new");
+    switch (newness) {
+        case "baby":
+            newHere = true;
+            console.log("Brand new");
 
-        newDistros = ["Zorin", "Pop!_OS", "Linux Mint", "elementaryOS", "Ubuntu Mate", "Kubuntu", "Solus"];
-        for (i = 0; i< newDistros.length; i++){
-            if (!distros.includes(newDistros[i])){
-                distros.push(newDistros[i]);    
+            newDistros = ["Zorin", "Pop!_OS", "Linux Mint", "elementaryOS", "Ubuntu Mate", "Kubuntu", "Solus"];
+            for (i = 0; i< newDistros.length; i++){
+                if (!distros.includes(newDistros[i])){
+                    distros.push(newDistros[i]);    
+                }
             }
-        }
-    }
-    if (newness == "arch-user") {
-        roundTheBlock = true;
-        console.log("Been around the block");
-    }    
-    if (newness == "old-fart") {
-        oldFart = true;
-        console.log("Back in my day");
+        case "arch-user":
+            roundTheBlock = true;
+            console.log("Been around the block");
+        case "old-fart":
+            oldFart = true;
+            console.log("Back in my day");
     }
     decision()
 }
 
 function softwareRelease(cycle) {
-    if (cycle == "no-cares") {
-        stable = true;
-        console.log("Making sure my computer runs for a long time");
+    switch (cycle) {
+        case "no-case":
+            stable = true;
+            console.log("Making sure my computer runs for a long time");
 
-        stableDistros = ["Debian", "CentOS", "Leap", "MX Linux"]
-        for (i = 0; i< stableDistros.length; i++){
-            if (!distros.includes(stableDistros[i])){
-                distros.push(stableDistros[i]);    
+            stableDistros = ["Debian", "CentOS", "Leap", "MX Linux"]
+            for (i = 0; i< stableDistros.length; i++){
+                if (!distros.includes(stableDistros[i])){
+                    distros.push(stableDistros[i]);    
+                }
             }
-        }
-    }
-    else if (cycle == "kinda-quickly") {
-        cuttingEdge = true;
-        console.log("I'm a tech enthusiast")
+        case "kinda-quickly":
+            cuttingEdge = true;
+            console.log("I'm a tech enthusiast")
 
-        cuttingEdgeDistros = ["Ubuntu", "Kubuntu", "Ubuntu Mate", "Xubuntu", "Ubuntu Budgie", "Debian", "Solus", "Fedora", "Linux Mint"]
-        for (i = 0; i< cuttingEdgeDistros.length; i++){
-            if (!distros.includes(cuttingEdgeDistros[i])){
-                distros.push(cuttingEdgeDistros[i]);    
+            cuttingEdgeDistros = ["Ubuntu", "Kubuntu", "Ubuntu Mate", "Xubuntu", "Ubuntu Budgie", "Debian", "Solus", "Fedora", "Linux Mint"]
+            for (i = 0; i< cuttingEdgeDistros.length; i++){
+                if (!distros.includes(cuttingEdgeDistros[i])){
+                    distros.push(cuttingEdgeDistros[i]);    
+                }
             }
-        }
-    }   
-    else if (cycle == "arch-user") {
-        bleedingEdge = true;
-        console.log("I like Arch, BTW")
-        
-        bleedingEdgeDistros = ["Tumbleweed", "EndeavourOS", "Manjaro"]
-        for (i = 0; i< bleedingEdgeDistros.length; i++){
-            if (!distros.includes(bleedingEdgeDistros[i])){
-                distros.push(bleedingEdgeDistros[i]);    
-            }
-        }
-        
-        if (distros.includes("elementaryOS")) {
-            for (i=0; i < distros.length; i++) {
-                if (distros[i] === "elementaryOS") {
-                    distros.splice(i, 1)
+        case cycle == "arch-user":
+            bleedingEdge = true;
+            console.log("I like Arch, BTW")
+            
+            bleedingEdgeDistros = ["Tumbleweed", "EndeavourOS", "Manjaro"]
+            for (i = 0; i< bleedingEdgeDistros.length; i++){
+                if (!distros.includes(bleedingEdgeDistros[i])){
+                    distros.push(bleedingEdgeDistros[i]);    
                 }
             }
         }
-    
+    if (distros.includes("elementaryOS")) {
+        for (i=0; i < distros.length; i++) {
+            if (distros[i] === "elementaryOS") {
+                distros.splice(i, 1)
+            }
+        }
     }
 
     document.getElementById("content").innerHTML = `
@@ -304,39 +300,38 @@ function softwareRelease(cycle) {
 }
 
 function customization(effort){
-    if (effort == "none") {
-        niceOOTB = true;
-        console.log("Gotta look nice");
+    switch (effort){
+        case "none":
+            niceOOTB = true;
+            console.log("Gotta look nice");
 
-        prettyDistros = ["elementaryOS", "Pop!_OS", "Zorin", "Kubuntu", "Ubuntu Mate", "Tumbleweed", "Manjaro", "EndeavourOS", "Peppermint", "MX Linux"]
-        for (i = 0; i< prettyDistros.length; i++){
-            if (!distros.includes(prettyDistros[i])){
-                distros.push(prettyDistros[i]);    
-            }
-        }
-    }
-    else if (effort == "littlebit") {
-        console.log("Likes to dabble");
-        
-        needTLCDistros = ["Xubuntu", "Ubuntu MATE", "MX Linux"]
-        for (i = 0; i< needTLCDistros.length; i++){
-            if (!distros.includes(needTLCDistros[i])){
-                distros.push(needTLCDistros[i]);    
-            }
-        }
-        
-    }
-    else if (effort == "arch-user") {
-        dirtyHands = true;
-        console.log("Gets hands dirty");
-
-        if (distros.includes("elementaryOS")) {
-            for (i=0; i < distros.length; i++) {
-                if (distros[i] === "elementaryOS") {
-                    distros.splice(i, 1)
+            prettyDistros = ["elementaryOS", "Pop!_OS", "Zorin", "Kubuntu", "Ubuntu Mate", "Tumbleweed", "Manjaro", "EndeavourOS", "Peppermint", "MX Linux"]
+            for (i = 0; i< prettyDistros.length; i++){
+                if (!distros.includes(prettyDistros[i])){
+                    distros.push(prettyDistros[i]);    
                 }
             }
-        }
+        case "littlebit":
+            console.log("Likes to dabble");
+            
+            needTLCDistros = ["Xubuntu", "Ubuntu MATE", "MX Linux"]
+            for (i = 0; i< needTLCDistros.length; i++){
+                if (!distros.includes(needTLCDistros[i])){
+                    distros.push(needTLCDistros[i]);    
+                }
+            }
+        
+        case "arch-user":
+            dirtyHands = true;
+            console.log("Gets hands dirty");
+
+            if (distros.includes("elementaryOS")) {
+                for (i=0; i < distros.length; i++) {
+                    if (distros[i] === "elementaryOS") {
+                        distros.splice(i, 1)
+                    }
+                }
+            }
     }
     document.getElementById("content").innerHTML = `
         <h3>How quickly do you want new software?</h3>
@@ -351,18 +346,18 @@ function customization(effort){
 
 }
 function computerAge(age) {
-    if (age == "young"){
-        console.log("Most distros should be fine")
-    }
-    if (age == "old"){
-        console.log("Should be careful it's not 32-bit")
-            oldPCFriendly = ["Xubuntu", "Lubuntu", "Peppermint", "MX Linux"]
-            for (i = 0; i< oldPCFriendly.length; i++){
-                if (!distros.includes(oldPCFriendly[i])){
-                    distros.push(oldPCFriendly[i]);    
+    switch (age){
+        case "young":
+            console.log("Most distros should be fine")
+        case "old":
+            console.log("Should be careful it's not 32-bit")
+                oldPCFriendly = ["Xubuntu", "Lubuntu", "Peppermint", "MX Linux"]
+                for (i = 0; i< oldPCFriendly.length; i++){
+                    if (!distros.includes(oldPCFriendly[i])){
+                        distros.push(oldPCFriendly[i]);    
+                    }
                 }
-            }
-        distros.push("Lubuntu");
+            distros.push("Lubuntu");
     }
     document.getElementById("content").innerHTML = `
         <h3>How much customization are you willing to do?</h3>
@@ -377,23 +372,25 @@ function computerAge(age) {
 }
 
 function compUse(usecase) {
-    if (usecase == "browsing") {
-        simple = true;
-        console.log("Mostly for browsing");
-    }
-    else if (usecase == "editing") {
-        console.log("Will do some editing");
-    }
-    else if (usecase == "gaming") {
-        gaming = true;
-        console.log("Totally a gamer");
+    switch (usecase) {
+        case "browsing":
+            simple = true;
+            console.log("Mostly for browsing");
+            break;
+        case "editing":
+            console.log("Will do some editing");
+            break;
+        case "gaming":
+            gaming = true;
+            console.log("Totally a gamer");
 
-        gamingDistros = ["Pop!_OS", "Solus", "Manjaro", "EndeavourOS"]
-        for (i = 0; i< gamingDistros.length; i++){
-            if (!distros.includes(gamingDistros[i])){
-                distros.push(gamingDistros[i]);    
+            gamingDistros = ["Pop!_OS", "Solus", "Manjaro", "EndeavourOS"]
+            for (i = 0; i< gamingDistros.length; i++){
+                if (!distros.includes(gamingDistros[i])){
+                    distros.push(gamingDistros[i]);    
+                }
             }
-        }
+        break;
     }
     document.getElementById("content").innerHTML = `
         <h3>How old is your PC?</h3>
@@ -408,30 +405,32 @@ function compUse(usecase) {
 }
 
 function desktopType(desktop) {
-    if (desktop == "windows") {
-        windowsLike = true;
-        console.log("I like Windows' desktop");
+    switch (desktop){
+        case "windows":
+            windowsLike = true;
+            console.log("I like Windows' desktop");
 
-        distros_like_win = ["Manjaro", "Zorin", "Linux Mint", "Ubuntu Mate", "Kubuntu", "Fedora", "Tumbleweed"];
-        for (i = 0; i< distros_like_win.length; i++){
-            if (!distros.includes(distros_like_win[i])){
-                distros.push(distros_like_win[i]);    
+            distros_like_win = ["Manjaro", "Zorin", "Linux Mint", "Ubuntu Mate", "Kubuntu", "Fedora", "Tumbleweed"];
+            for (i = 0; i< distros_like_win.length; i++){
+                if (!distros.includes(distros_like_win[i])){
+                    distros.push(distros_like_win[i]);    
+                }
             }
-        }
-    }
-    else if (desktop == "mac") {
-        macLike = true;
-        console.log("I like macOS' desktop");
+            break;
+        case "mac":
+            macLike = true;
+            console.log("I like macOS' desktop");
 
-        distros_like_mac = ["elementaryOS", "Pop!_OS", "Zorin", "Ubuntu Budgie", "Kubuntu", "Xubuntu", "Ubuntu Mate"]
-        for (i = 0; i< distros_like_mac.length; i++){
-            if (!distros.includes(distros_like_mac[i])){
-                distros.push(distros_like_mac[i]);    
+            distros_like_mac = ["elementaryOS", "Pop!_OS", "Zorin", "Ubuntu Budgie", "Kubuntu", "Xubuntu", "Ubuntu Mate"]
+            for (i = 0; i< distros_like_mac.length; i++){
+                if (!distros.includes(distros_like_mac[i])){
+                    distros.push(distros_like_mac[i]);    
+                }
             }
-        }
-    }
-    else if (desktop == "whatever") {
-        console.log("I don't care, so long as it works")
+            break;
+        case "whatever":
+            console.log("I don't care, so long as it works");
+            break;
     }
 
     document.getElementById("return-to-start").innerHTML = "<a href='javascript:void('0')' onclick='quizStart()'>Start over</a>";
@@ -466,23 +465,25 @@ function quizStart() {
 function explanationText(location) {
     console.log("User wanted to know why they were asked about " + location);
     var explanation = document.getElementById("why")
-    if (location == "desktop"){
-        explanation.innerHTML = "We want to know what kind of desktop experience you are most comfortable with, as this will help decide on the <a href='https://simple.wikipedia.org/wiki/Desktop_environment' target='_blank'>Desktop Environment</a> we recommend. If you have no preference, click the \"Don't care\" button.";
-    }
-    if (location == "usage") {
-        explanation.innerHTML = 'We want to know what kind of user you are. If you only browse the web using Google Chrome or Mozilla Firefox, click "Light". If you do <b>not</b> have a graphics card but do more than just browse the web, click "Medium". If you have a graphics card, click "Heavy".';
-    }
-    if (location == "age"){
-        explanation.innerHTML = 'We want to know if your computer will be fast enough for most distros. If it\'s older than 10 years old it can sometimes lead to a bad experience, which is something we want to avoid.';
-    }
-    if (location == "customization") {
-        explanation.innerHTML = 'Some very good performing distros do not look pretty out of the box. We want to know if you are willing to put a little bit of time in for customization. If you would like a good-looking distro out of the box, choose "As Little as Possible".';
-    }
-    if (location == "content") {
-        explanation.innerHTML = 'Each distro pushes out updates at different rates and can be more stable than other distros. Distros that push out faster updates can be less stable than distros that push out only stable updates. Click "Once it\'s been tested" for a happy medium.';
-    }
-    if (location == "newness") {
-        explanation.innerHTML = 'Some distros are better than others for people who have never used Linux before. This will help us recommend a distro that will be close to your level of Linux knowlege.';
+    switch (location) {
+        case "desktop":
+            explanation.innerHTML = "We want to know what kind of desktop experience you are most comfortable with, as this will help decide on the <a href='https://simple.wikipedia.org/wiki/Desktop_environment' target='_blank'>Desktop Environment</a> we recommend. If you have no preference, click the \"Don't care\" button.";
+            break;
+        case "usage":
+            explanation.innerHTML = 'We want to know what kind of user you are. If you only browse the web using Google Chrome or Mozilla Firefox, click "Light". If you do <b>not</b> have a graphics card but do more than just browse the web, click "Medium". If you have a graphics card, click "Heavy".';
+            break;
+        case "age":
+            explanation.innerHTML = 'We want to know if your computer will be fast enough for most distros. If it\'s older than 10 years old it can sometimes lead to a bad experience, which is something we want to avoid.';
+            break;
+        case "customization":
+            explanation.innerHTML = 'Some very good performing distros do not look pretty out of the box. We want to know if you are willing to put a little bit of time in for customization. If you would like a good-looking distro out of the box, choose "As Little as Possible".';
+            break;
+        case "content":
+            explanation.innerHTML = 'Each distro pushes out updates at different rates and can be more stable than other distros. Distros that push out faster updates can be less stable than distros that push out only stable updates. Click "Once it\'s been tested" for a happy medium.';
+            break;
+        case "newness":
+            explanation.innerHTML = 'Some distros are better than others for people who have never used Linux before. This will help us recommend a distro that will be close to your level of Linux knowlege.';
+            break;
     }
 }
 
